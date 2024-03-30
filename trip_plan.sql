@@ -14,3 +14,12 @@ ALTER TABLE Member
         CHECK (Member_ID RLIKE "[:alpha:]{0,15}[0-9]{0,15}");
 
 DROP TABLE Member;
+
+/* ============= */
+
+nick was here asdlfadslfhdaslkfkalfjdsafka - ERIC
+Mmmmm VS code
+type something
+asdfhalfhlafdasfa
+SET @age = 30;
+
