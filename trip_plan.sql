@@ -4,22 +4,19 @@ CREATE SCHEMA Tester;
 USE Tester;
 
 CREATE TABLE Member(
-    Member_ID VARCHAR(30);
+    Member_ID VARCHAR(30),
 
-    PRIMARY KEY Member_ID;
-)
+    PRIMARY KEY (Member_ID)
+);
 
 ALTER TABLE Member
     ADD CONSTRAINT ID_Format
         CHECK (Member_ID RLIKE "[:alpha:]{0,15}[0-9]{0,15}");
 
-DROP TABLE Member;
+INSERT INTO Member (Member_ID)
+	VALUES 
+		("ABDCE00000"),
+        ("FFFFFFFFFFFFFF111111111111111"),
+        ("CACTUS0000");
 
-/* ============= */
-
-nick was here asdlfadslfhdaslkfkalfjdsafka - ERIC
-Mmmmm VS code
-type something
-asdfhalfhlafdasfa
-SET @age = 30;
-
+SELECT * FROM Member;
