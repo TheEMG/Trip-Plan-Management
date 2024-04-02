@@ -20,3 +20,4 @@ INSERT INTO Member (Member_ID)
         ("CACTUS0000");
 
 SELECT * FROM Member;
+--test
