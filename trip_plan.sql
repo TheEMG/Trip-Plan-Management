@@ -1,22 +1,34 @@
-/* Test DB*/
-DROP SCHEMA IF EXISTS Tester;
-CREATE SCHEMA Tester;
-USE Tester;
+-- Statement just for development phase
+DROP SCHEMA IF EXISTS Erics;
 
-CREATE TABLE Member(
-    Member_ID VARCHAR(30),
+CREATE SCHEMA Erics;
+USE Erics;
 
+CREATE TABLE AUTHORIZED_MEMBER(
+	Member_ID INT,
+    Is_Preferred BOOLEAN,
+	-- If we are required to pull a list of who follows who, may have to add new table
+    Num_Following INT,
+    Ranking INT,
+    Address VARCHAR(50),
+    User_Name VARCHAR(15),
+    User_Password VARCHAR(50),
+    Email VARCHAR(30),
+    
     PRIMARY KEY (Member_ID)
 );
 
-ALTER TABLE Member
-    ADD CONSTRAINT ID_Format
-        CHECK (Member_ID RLIKE "[:alpha:]{0,15}[0-9]{0,15}");
+CREATE TABLE TRIP_PLAN(
+	Plan_ID INT,
+    Member_ID INT, -- Foreign Key refering to PK of AUTHORIZED_MEMBER, add contraint later
+    Potential_Cost FLOAT(10,2),
+    Arrival_Date DATE,
+    Arrive_Time TIME,
+    Departure_Date DATE,
+    Departure_Time TIME,
+    Duration TINYINT UNSIGNED,
+    Trip_Name VARCHAR(30),
+    Purpose TEXT
+    
+);
 
-INSERT INTO Member (Member_ID)
-	VALUES 
-		("ABDCE00000"),
-        ("FFFFFFFFFFFFFF111111111111111"),
-        ("CACTUS0000");
-
-SELECT * FROM Member;
