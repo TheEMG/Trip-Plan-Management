@@ -1,6 +1,5 @@
 -- Statement just for development phase
 DROP SCHEMA IF EXISTS Erics;
-
 CREATE SCHEMA Erics;
 USE Erics;
 
@@ -28,6 +27,5 @@ CREATE TABLE TRIP_PLAN(
     Trip_Name VARCHAR(30),
     Purpose TEXT,
     
-    PRIMARY KEY (PLAN_ID)
+    PRIMARY KEY (Plan_ID)
 );
-
