@@ -30,6 +30,46 @@ CREATE TABLE TRIP_PLAN(
     PRIMARY KEY (Plan_ID)
 );
 
+CREATE TABLE IMAGES(
+	Image_ID INT,
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Image_link VARCHAR(100)
+);
+
+CREATE TABLE RATE(
+	Plan_ID INT, --Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Rating INT
+);
+
+CREATE TABLE USER_ACTION(
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Comment_ID INT, -- Foreign Key referring to PK of COMMENTS, add constraint later
+	User_Likes BOOLEAN,
+	User_Dislikes BOOLEAN,
+	User_Reply TEXT
+);
+
+CREATE TABLE EDIT(
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Destination_ID INT, -- Foreign Key referring to PK of DESTINATION, add constraint later
+	Date_Modified BOOLEAN
+);
+
+CREATE TABLE ASSOCIATED_MEMBERS(
+	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+);
+
+CREATE TABLE PLANNED_ATTRACTIONS(
+	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Attraction_ID INT, -- Foreign Key referring to PK TRAVEL_ATTRACTIONS, add constraint later
+	Arrival_Date DATE,
+	Arrival_Time TIME,
+	Departure_Date DATE,
+	Departure_Time TIME
+);
+
 CREATE TABLE COMMENTS(
 Destination_ID INT,
 Member_ID INT, 
