@@ -22,13 +22,12 @@ CREATE TABLE TRIP_PLAN(
 	Plan_ID INT,
     Member_ID INT, -- Foreign Key refering to PK of AUTHORIZED_MEMBER, add contraint later
     Potential_Cost FLOAT(10,2),
-    Arrival_Date DATE,
-    Arrive_Time TIME,
-    Departure_Date DATE,
-    Departure_Time TIME,
+    Start_Date DATE,
+    End_Date DATE,
     Duration TINYINT UNSIGNED,
     Trip_Name VARCHAR(30),
-    Purpose TEXT
+    Purpose TEXT,
     
+    PRIMARY KEY (PLAN_ID)
 );
 
