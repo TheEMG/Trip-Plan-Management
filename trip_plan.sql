@@ -33,7 +33,9 @@ CREATE TABLE TRIP_PLAN(
 CREATE TABLE IMAGES(
 	Image_ID INT,
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
-	Image_link VARCHAR(100)
+	Image_link VARCHAR(100),
+
+    PRIMARY KEY (Image_ID)
 );
 
 CREATE TABLE RATE(
@@ -71,21 +73,25 @@ CREATE TABLE PLANNED_ATTRACTIONS(
 );
 
 CREATE TABLE COMMENTS(
-Destination_ID INT,
-Member_ID INT, 
-Dislikes INT, 
-Likes INT,
-Content_Rating INT,
-Comment_Date Date,
-Posting_Time TIME
+    Comment_ID INT,
+    Destination_ID INT,
+    Member_ID INT, 
+    Dislikes INT, 
+    Likes INT,
+    Content_Rating INT,
+    Comment_Date Date,
+    Posting_Time TIME,
+
+    PRIMARY KEY (Comment_ID)
 );
 
--- Added Owner_Id since the EER diagram doesnt have a primay key 
 CREATE TABLE BUISNESS_OWNER(
-Owner_ID INT,
-Associated_Stores VARCHAR(30), -- shouldnt this be a new relation 
-Buisness_Name VARCHAR(30),
-Buisness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
-Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
-Contact_Info VARCHAR(30) --  THIS is our "contact person" should i change this to contanct person im not sure where this contact info
+    Owner_ID INT,
+    Associated_Stores VARCHAR(30), -- shouldnt this be a new relation 
+    Buisness_Name VARCHAR(30),
+    Buisness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
+    Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
+    Contact_Info VARCHAR(30), --  THIS is our "contact person" should i change this to contanct person im not sure where this contact info
+
+    PRIMARY KEY (Owner_ID)
 );
