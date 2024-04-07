@@ -87,7 +87,6 @@ CREATE TABLE COMMENTS(
 
 CREATE TABLE BUISNESS_OWNER(
     Owner_ID INT,
-    Associated_Stores VARCHAR(30), -- shouldnt this be a new relation 
     Buisness_Name VARCHAR(30),
     Buisness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
     Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
