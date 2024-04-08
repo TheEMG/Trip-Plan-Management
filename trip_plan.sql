@@ -94,3 +94,28 @@ CREATE TABLE BUISNESS_OWNER(
 
     PRIMARY KEY (Owner_ID)
 );
+
+CREATE TABLE DESTNATION(
+Destination_ID INT,
+Destination_Description TEXT,
+Country_Name VARCHAR(20),
+MEM_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
+
+PRIMARY KEY (Destination_ID)
+);
+
+CREATE TABLE STATE(
+    State_ID INT,
+    State_name VARCHAR(20),
+    Country_Name VARCHAR(25), --Foreign Key referring to PK of COUNTRY, add constraint later
+    
+    PRIMARY KEY (State_ID)
+)
+
+CREATE TABLE CITY(
+    State_ID INT, --Foreign Key referring to PK of STATE, add constraint later
+    City_ID INT,
+    City_Name VARCHAR(25),
+
+    PRIMARY KEY (City_ID)
+)
