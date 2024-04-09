@@ -110,7 +110,7 @@ CREATE TABLE STATE(
     Country_Name VARCHAR(25), --Foreign Key referring to PK of COUNTRY, add constraint later
     
     PRIMARY KEY (State_ID)
-)
+);
 
 CREATE TABLE CITY(
     State_ID INT, --Foreign Key referring to PK of STATE, add constraint later
@@ -118,7 +118,7 @@ CREATE TABLE CITY(
     City_Name VARCHAR(25),
 
     PRIMARY KEY (City_ID)
-)
+);
 
 CREATE TABLE TRAVEL_ATTRACTIONS (
     Attraction_ID INT, -- Primary key
@@ -155,3 +155,31 @@ CREATE TABLE RESTAURANTS (
 
     PRIMARY KEY (Restaurant_ID)
 );
+
+CREATE TABLE SIGHTS(
+Attractions_ID INT,--Forgein Key
+City_ID INT,--Forgein Key
+Ticket_Price INT,
+Sight_ID INT
+
+PRIMARY KEY(Sight_ID)
+);
+
+
+CREATE TABLE SHOPPING_MALLS(
+   Attractions_ID INT,--Forgein Key
+   City_ID INT,--Forgein Key
+   Mall_ID INT
+
+   PRIMARY KEY(Mall_ID)
+);
+
+
+
+
+CREATE TABLE COUNTRY(
+   Country_Name VARCHAR(25),
+    PRIMARY KEY( Country_Name)
+
+);
+
