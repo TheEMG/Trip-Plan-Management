@@ -119,3 +119,39 @@ CREATE TABLE CITY(
 
     PRIMARY KEY (City_ID)
 )
+
+CREATE TABLE TRAVEL_ATTRACTIONS (
+    Attraction_ID INT, -- Primary key
+    City_ID INT,
+    Attraction_name VARCHAR(25),
+    Attraction_description VARCHAR(250),
+    Attraction_address VARCHAR(100),
+    Rating INT,
+    Opening_hours VARCHAR(10), -- Assuming something like "9:00 AM"
+    Phone_number VARCHAR(25),
+
+    PRIMARY KEY (Attraction_ID)
+);
+
+CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
+    Attraction_ID INT, -- Foreign key referring to PK of ATTRACTION, add constraint later
+    Ways_of_travel VARCHAR(10),
+
+    PRIMARY KEY (Ways_of_travel)
+);
+
+CREATE TABLE RESTAURANTS (
+    Attraction_ID INT, -- Foreign key referring to PK of ATTRACTIONS, add constraint later
+    City_ID INT, -- Foreign key referring to PK of CITY, add constraint later
+    Restaurant_name VARCHAR(30),
+    Restaurant_description VARCHAR(250),
+    Restaurant_address VARCHAR(100),
+    Rating INT,
+    Opening_hours VARCHAR(10),
+    Phone_number VARCHAR(25),
+    Type VARCHAR(10),
+    Web_link VARCHAR(30),
+    Restaurant_ID INT,
+
+    PRIMARY KEY (Restaurant_ID)
+);
