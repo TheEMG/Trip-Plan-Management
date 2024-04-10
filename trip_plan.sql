@@ -85,10 +85,10 @@ CREATE TABLE COMMENTS(
     PRIMARY KEY (Comment_ID)
 );
 
-CREATE TABLE BUISNESS_OWNER(
+CREATE TABLE BUISINESS_OWNER(
     Owner_ID INT,
-    Buisness_Name VARCHAR(30),
-    Buisness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
+    Buisiness_Name VARCHAR(30),
+    Buisiness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
     Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
     Contact_Info VARCHAR(30), --  THIS is our "contact person" should i change this to contanct person im not sure where this contact info
 
@@ -179,3 +179,10 @@ CREATE TABLE COUNTRY(
     PRIMARY KEY( Country_Name)
 );
 
+ALTER TABLE PLANNED_ATTRACTIONS
+    ADD FOREIGN KEY (Plan_ID) REFERENCES TRIP_PLAN (Plan_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS (Attraction_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;
