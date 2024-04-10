@@ -39,7 +39,7 @@ CREATE TABLE IMAGES(
 );
 
 CREATE TABLE RATE(
-	Plan_ID INT, --Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Rating INT
 );
@@ -60,7 +60,7 @@ CREATE TABLE EDIT(
 
 CREATE TABLE ASSOCIATED_MEMBERS(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
-	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Member_ID INT -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 );
 
 CREATE TABLE PLANNED_ATTRACTIONS(
@@ -107,13 +107,13 @@ PRIMARY KEY (Destination_ID)
 CREATE TABLE STATE(
     State_ID INT,
     State_name VARCHAR(20),
-    Country_Name VARCHAR(25), --Foreign Key referring to PK of COUNTRY, add constraint later
+    Country_Name VARCHAR(25), -- Foreign Key referring to PK of COUNTRY, add constraint later
     
     PRIMARY KEY (State_ID)
 );
 
 CREATE TABLE CITY(
-    State_ID INT, --Foreign Key referring to PK of STATE, add constraint later
+    State_ID INT, -- Foreign Key referring to PK of STATE, add constraint later
     City_ID INT,
     City_Name VARCHAR(25),
 
@@ -157,18 +157,18 @@ CREATE TABLE RESTAURANTS (
 );
 
 CREATE TABLE SIGHTS(
-    Attractions_ID INT,--Forgein Key
-    City_ID INT,--Forgein Key
+    Attractions_ID INT, -- Foreign Key
+    City_ID INT, -- Foreign Key
     Ticket_Price INT,
-    Sight_ID INT
+    Sight_ID INT,
 
     PRIMARY KEY(Sight_ID)
 );
 
 CREATE TABLE SHOPPING_MALLS(
-   Attractions_ID INT,--Forgein Key
-   City_ID INT,--Forgein Key
-   Mall_ID INT
+   Attractions_ID INT, -- Foreign Key
+   City_ID INT, -- Foreign Key
+   Mall_ID INT,
 
    PRIMARY KEY(Mall_ID)
 );
