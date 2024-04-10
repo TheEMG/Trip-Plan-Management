@@ -183,8 +183,4 @@ CREATE TABLE COUNTRY(
 
 );
 
-<<<<<<< HEAD
-SELECT * FROM Member;
---test
-=======
->>>>>>> 31601be66b0b8478412947b548b3a0a9e52fd9fd
+
