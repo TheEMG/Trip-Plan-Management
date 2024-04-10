@@ -96,10 +96,10 @@ CREATE TABLE BUISNESS_OWNER(
 );
 
 CREATE TABLE DESTNATION(
-Destination_ID INT,
-Destination_Description TEXT,
-Country_Name VARCHAR(20),
-MEM_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
+    Destination_ID INT,
+    Destination_Description TEXT,
+    Country_Name VARCHAR(20),
+    MEM_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
 
 PRIMARY KEY (Destination_ID)
 );
@@ -157,14 +157,13 @@ CREATE TABLE RESTAURANTS (
 );
 
 CREATE TABLE SIGHTS(
-Attractions_ID INT,--Forgein Key
-City_ID INT,--Forgein Key
-Ticket_Price INT,
-Sight_ID INT
+    Attractions_ID INT,--Forgein Key
+    City_ID INT,--Forgein Key
+    Ticket_Price INT,
+    Sight_ID INT
 
-PRIMARY KEY(Sight_ID)
+    PRIMARY KEY(Sight_ID)
 );
-
 
 CREATE TABLE SHOPPING_MALLS(
    Attractions_ID INT,--Forgein Key
@@ -174,13 +173,9 @@ CREATE TABLE SHOPPING_MALLS(
    PRIMARY KEY(Mall_ID)
 );
 
-
-
-
 CREATE TABLE COUNTRY(
-   Country_Name VARCHAR(25),
+    Country_Name VARCHAR(25),
+    
     PRIMARY KEY( Country_Name)
-
 );
-
 
