@@ -307,3 +307,43 @@ ALTER TABLE RATE
     ON UPDATE CASCADE;    
     
 -- End of Eric O's Alter Table Statements 
+
+
+/*Country Relation data */
+INSERT INTO COUNTRY (Country_Name) VALUES 
+('USA'), ('Canada'), ('Mexico');
+
+/*Authorized Member data
+    Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
+*/
+INSERT INTO AUTHORIZED_MEMBER VALUES
+(1, TRUE, 10, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
+(2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
+(3, TRUE, 15, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
+(4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
+(5, TRUE, 12, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
+(6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
+(7, TRUE, 20, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
+(8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
+(9, TRUE, 11, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
+(10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
+(11, TRUE, 18, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
+(12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
+(13, TRUE, 14, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
+(14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
+(15, TRUE, 17, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+
+/*
+    Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
+    This makes it seem like its buisnesses not buisness owners 
+*/
+Insert Into BUISINESS_OWNER VALUES
+(1, 'Cafe of Death', 'Restaurant', '123-456-7890', 'Eric Gutierrez'),
+(2, 'Moonlit Grille', 'Restaurant', '234-567-8901', 'Jane Doe'), 
+(3, 'Broadway Mall', 'Shopping Mall', '345-678-9012', 'Eric Gutierrez'),
+(4, 'Mount Rushmore', 'Sight', '456-789-0123', 'Eric Gutierrez'), 
+(5, 'Lakeside Eats', 'Restaurant', '567-890-1234', 'Alex Johnson'),
+(6, 'Market Square Mall', 'Shopping Mall', '678-901-2345', 'Mike Brown'),
+(7, 'Historic Castle Tours', 'Sight', '789-012-3456', 'Mike Brown');
+
+
