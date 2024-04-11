@@ -158,7 +158,7 @@ CREATE TABLE RESTAURANTS (
 );
 
 CREATE TABLE SIGHTS(
-    Attractions_ID INT, -- Foreign Key
+    Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
     City_ID INT, -- Foreign Key
     Ticket_Price INT,
     Sight_ID INT,
@@ -167,7 +167,7 @@ CREATE TABLE SIGHTS(
 );
 
 CREATE TABLE SHOPPING_MALLS(
-   Attractions_ID INT, -- Foreign Key
+   Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
    City_ID INT, -- Foreign Key
    Mall_ID INT,
 
@@ -265,7 +265,7 @@ ALTER TABLE CITY
 
 /*Johnny Alter Table*/
 ALTER TABLE SIGHTS
-ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID) -- Wrong double check the naming i think thats the issue 
+ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID) -- Wrong double check the naming i think thats the issue. I removed the "s" Eric-O
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
@@ -274,9 +274,36 @@ ON UPDATE CASCADE;
 
 
 ALTER TABLE SHOPPING_MALLS
-ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID) -- Wrong double check the naming 
+ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID) -- Wrong double check the naming. I removed the "s" Eric-O
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
+
+
+-- Eric O's Alter Table Statements
+
+-- No Foreign Key needed for AUTHORIZED_MEMBER
+
+-- No Foreign Key needed for COUNTRY 
+    
+ALTER TABLE TRIP_PLAN
+    ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;
+    
+ALTER TABLE IMAGES
+    ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;    
+    
+ALTER TABLE RATE
+    ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    ADD FOREIGN KEY (Plan_ID) REFERENCES TRIP_PLAN (Plan_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;    
+    
+-- End of Eric O's Alter Table Statements 
