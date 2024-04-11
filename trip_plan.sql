@@ -2,7 +2,7 @@
 DROP SCHEMA IF EXISTS Erics;
 CREATE SCHEMA Erics;
 USE Erics;
-
+/*REORGINZED the table attributes with following format PK, Foreign key , reaming attributes */
 CREATE TABLE AUTHORIZED_MEMBER(
 	Member_ID INT,
     Is_Preferred BOOLEAN,
@@ -113,8 +113,8 @@ CREATE TABLE STATE(
 );
 
 CREATE TABLE CITY(
-    State_ID INT, -- Foreign Key referring to PK of STATE, add constraint later
     City_ID INT,
+    State_ID INT, -- Foreign Key referring to PK of STATE, add constraint later
     City_Name VARCHAR(25),
 
     PRIMARY KEY (City_ID)
@@ -141,6 +141,7 @@ CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
 );
 
 CREATE TABLE RESTAURANTS (
+    Restaurant_ID INT,
     Attraction_ID INT, -- Foreign key referring to PK of ATTRACTIONS, add constraint later
     City_ID INT, -- Foreign key referring to PK of CITY, add constraint later
     Restaurant_name VARCHAR(30),
@@ -152,24 +153,23 @@ CREATE TABLE RESTAURANTS (
     Type VARCHAR(10),
     Price_range VARCHAR(10),
     Web_link VARCHAR(30),
-    Restaurant_ID INT,
 
     PRIMARY KEY (Restaurant_ID)
 );
 
 CREATE TABLE SIGHTS(
+    Sight_ID INT,
     Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
     City_ID INT, -- Foreign Key
     Ticket_Price INT,
-    Sight_ID INT,
 
     PRIMARY KEY(Sight_ID)
 );
 
 CREATE TABLE SHOPPING_MALLS(
+   Mall_ID INT,
    Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
    City_ID INT, -- Foreign Key
-   Mall_ID INT,
 
    PRIMARY KEY(Mall_ID)
 );
