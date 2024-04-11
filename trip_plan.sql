@@ -87,8 +87,8 @@ CREATE TABLE COMMENTS(
 
 CREATE TABLE BUISINESS_OWNER(
     Owner_ID INT,
-    Buisiness_Name VARCHAR(30),
-    Buisiness_Type VARCHAR(30), -- CHANGED type attribute to buisness type for clarity
+    Business_Name VARCHAR(30),
+    Business_Type VARCHAR(30), -- CHANGED type attribute to business type for clarity
     Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
     Contact_Info VARCHAR(30), --  THIS is our "contact person" should i change this to contanct person im not sure where this contact info
 
