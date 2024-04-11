@@ -99,7 +99,7 @@ CREATE TABLE DESTINATION(
     Destination_ID INT,
     Destination_Description TEXT,
     Country_Name VARCHAR(20),
-    MEM_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
+    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
 
 PRIMARY KEY (Destination_ID)
 );
@@ -261,20 +261,20 @@ ALTER TABLE STATE
 ALTER TABLE CITY
     ADD FOREIGN KEY (State_ID) REFERENCES STATE (State_ID)
     ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON UPDATE CASCADE;
 
 /*Johnny Alter Table*/
 ALTER TABLE SIGHTS
-ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID)
+ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID) -- Wrong double check the naming i think thats the issue 
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
 ON DELETE CASCADE
-ON UPDATE CASCADE
+ON UPDATE CASCADE;
 
 
 ALTER TABLE SHOPPING_MALLS
-ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID)
+ADD FOREIGN KEY (Attractions_ID) REFERENCES TRAVEL_ATTRACTIONS(Attractions_ID) -- Wrong double check the naming 
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
