@@ -85,7 +85,7 @@ CREATE TABLE COMMENTS(
     PRIMARY KEY (Comment_ID)
 );
 
-CREATE TABLE BUISINESS_OWNER(
+CREATE TABLE BUSINESS_OWNER(
     Owner_ID INT,
     Business_Name VARCHAR(30),
     Business_Type VARCHAR(30), -- CHANGED type attribute to business type for clarity
@@ -337,7 +337,7 @@ INSERT INTO AUTHORIZED_MEMBER VALUES
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
     This makes it seem like its buisnesses not buisness owners 
 */
-Insert Into BUISINESS_OWNER VALUES
+Insert Into BUSINESS_OWNER VALUES
 (1, 'Cafe of Death', 'Restaurant', '123-456-7890', 'Eric Gutierrez'),
 (2, 'Moonlit Grille', 'Restaurant', '234-567-8901', 'Jane Doe'), 
 (3, 'Broadway Mall', 'Shopping Mall', '345-678-9012', 'Eric Gutierrez'),
