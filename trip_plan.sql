@@ -346,4 +346,18 @@ Insert Into BUSINESS_OWNER VALUES
 (6, 'Market Square Mall', 'Shopping Mall', '678-901-2345', 'Mike Brown'),
 (7, 'Historic Castle Tours', 'Sight', '789-012-3456', 'Mike Brown');
 
+/*
+    STATE data (State_ID, State_name, Country_Name)
+*/
+
+INSERT INTO STATE VALUES
+(1, 'Texas', 'USA'),
+(2, 'Ontario', 'Canada'),
+(3, 'Jalisco', 'Mexico'),
+(4, 'Sonora', 'Mexico'),
+(5, 'Florida', 'USA'),
+(6, 'New York', 'USA'),
+(7, 'Guerrero', 'Mexico'),
+(8, 'Alberta', 'Canada');
+
 
