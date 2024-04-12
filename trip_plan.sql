@@ -437,6 +437,8 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
 
+
+
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Way_of_Travel) FOR SIMPLICITY ways of travel, vehicle, walking , bus, helicopter, donkey ride 
 -- Using 'INSERT IGNORE' to avoid errors due to duplicate entries.
 -- Duplicate entries might exist because each attraction can only have each mode of transport listed once.
@@ -488,6 +490,9 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
+INSERT INTO RATE VALUES
+-- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
+()
 
 
 INSERT INTO TRIP_PLAN VALUES
@@ -507,6 +512,24 @@ INSERT INTO TRIP_PLAN VALUES
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
   (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer");
 
+  -- Planned ID (Plain_ID, Attraction_ID, Arrival_Date, Arrival time, departure date, Departure_time)
+INSERT INTO PLANNED_ATTRACTIONS VALUES
+(1, 1, '2024-04-15', '09:00', '2024-04-15', '10:30'), -- Visit to Cafe of Death
+(2, 2, '2024-04-15', '20:00', '2024-04-15', '23:00'), -- Dinner at Moonlit Grille
+(3, 3, '2024-04-16', '12:00', '2024-04-16', '15:00'), -- Shopping at Broadway Mall
+(4, 4, '2024-04-17', '08:00', '2024-04-17', '11:00'), -- Mount Rushmore visit
+(5, 5, '2024-04-18', '11:00', '2024-04-18', '14:00'), -- Brunch at Lakeside Eats
+(6, 6, '2024-04-19', '09:00', '2024-04-19', '17:00'), -- Full day at Market Square Mall
+(7, 7, '2024-04-20', '10:00', '2024-04-20', '13:00'), -- Historic Castle Tours
+(8, 8, '2024-04-21', '12:00', '2024-04-21', '14:00'), -- Lunch at Cheddars
+(9, 9, '2024-04-22', '06:00', '2024-04-22', '07:30'), -- Breakfast at Starlight Diner
+(10, 10, '2024-04-23', '10:00', '2024-04-23', '17:00'), -- Shopping at Vista Ridge Mall
+(11, 11, '2024-04-24', '08:00', '2024-04-24', '09:30'), -- Sunrise at Crystal Lake View
+(12, 12, '2024-04-25', '09:00', '2024-04-25', '12:00'), -- Visit to Summit Peak Mall
+(13, 13, '2024-04-26', '09:00', '2024-04-26', '16:00'), -- Exploring Ancient Ruins
+(14, 14, '2024-04-27', '07:00', '2024-04-27', '10:00'), -- Morning in National Yellow Park
+(15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'); -- City Lights Mall exploration
+
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
 (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890', 'Cafe', '$$', 'www.cafeofdeath.com'),
@@ -515,7 +538,13 @@ VALUES
 (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
 (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
 
-INSERT INTO USER_ACTION VALUES
+-- COMMENT (Comment_ID, Destination_ID, Member_ID, Dislikes, Likes, Content_Rating, Comment_Date, Posting_Time)
+INSERT INTO COMMENTS VALUES
+  (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
+  (2, 2, 2, 10, 7, 3, '2019-04-20', '02:00:00'),
+  (3, 3, 3, 15, 11, 4, '2020-09-01', '15:15:15'),
+  (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
+  (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');INSERT INTO USER_ACTION VALUES
 (1, 1, TRUE, FALSE, "USER REPLY"),
 (2, 2, FALSE, TRUE, "USER REPLY"),
 (3, 3, TRUE, TRUE, "USER REPLY"),
