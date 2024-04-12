@@ -360,4 +360,21 @@ INSERT INTO STATE VALUES
 (7, 'Guerrero', 'Mexico'),
 (8, 'Alberta', 'Canada');
 
-
+-- (City_ID = INT, State_ID = INT, "CITY_NAME")
+INSERT INTO CITY VALUES
+(1, 1, 'San Antonio'),
+(2, 1, 'Dallas'),
+(3, 2, 'Poutine'),
+(4, 2, 'Le France'),
+(5, 3, 'Caliente'),
+(6, 3, 'Muy Caliente'),
+(7, 4, 'Es Frio'),
+(8, 4, 'Muy Mal'),
+(9, 5, 'Miami'),
+(10, 5, 'Tallahassee'),
+(11, 6, 'New York'),
+(12, 6, 'Albany'),
+(13, 7, 'No Es Frio'),
+(14, 7, 'Grande Verde'),
+(15, 8, 'Maple Syrup'),
+(16, 8, 'Vive Le France');
