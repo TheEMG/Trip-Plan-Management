@@ -380,10 +380,22 @@ INSERT INTO CITY VALUES
 (7, 4, 'Es Frio'),
 (8, 4, 'Muy Mal'),
 (9, 5, 'Miami'),
-(10, 5, 'Tallahassee'),
-(11, 6, 'New York'),
-(12, 6, 'Albany'),
-(13, 7, 'No Es Frio'),
-(14, 7, 'Grande Verde'),
-(15, 8, 'Maple Syrup'),
-(16, 8, 'Vive Le France');
+(10, 5, 'Tallahassee');
+
+-- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
+--rating = int, Opening_hours = '', Phone_number = '')
+INSERT INTO TRAVEL_ATTRACTIONS VALUES
+(1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', 
+'123 Main Street, Anytown, USA', 4, '9:00 AM', '123-456-7890'),
+(2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', 
+'456 Park Avenue, Anytown, USA', 5, '6:00 PM', '234-567-8901'),
+(3, 3, 3, 'Broadway Mall', 'A bustling shopping destination featuring a wide variety of stores and boutiques.', 
+'789 Broadway Blvd, Anytown, USA', 4, '10:00 AM', '345-678-9012'),
+(4, 4, 4, 'Mount Rushmore', 'Marvel at the iconic faces carved into the mountainside at this historic landmark.', 
+'Mount Rushmore National Memorial, South Dakota, USA', 5, '8:00 AM', '456-789-0123'),
+(5, 5, 5, 'Lakeside Eats', 'Relax by the lake and savor delicious food at this waterfront restaurant.', 
+'123 Lakeview Drive, Anytown, USA', 4, '11:00 AM', '567-890-1234'),
+(6, 6, 6, 'Market Square Mall', 'Shop til you drop at this expansive mall offering a wide range of stores and dining options.', 
+'101 Market Street, Anytown, USA', 4, '9:00 AM', '678-901-2345'),
+(7, 7, 7,'Historic Castle Tours', 'Embark on a journey through history with guided tours of ancient castles.', 
+'1 Castle Road, Anytown, USA', 5, '10:00 AM', '789-012-3456');
