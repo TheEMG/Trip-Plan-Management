@@ -422,3 +422,11 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 '404 Birch Boulevard, Anytown, USA', 4, '7:00 AM', '911-234-5678'),
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Anytown, USA', 5, '11:00 AM', '977-901-2345');
+
+/* SHOPPING_MALLS (Mall_ID, Attraction_ID, City_ID) */
+INSERT INTO SHOPPING_MALLS VALUES
+  (1, 3, 3),
+  (2, 6, 6),
+  (3, 10, 10),
+  (4, 12, 2),
+  (5, 15, 5);
