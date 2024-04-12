@@ -529,3 +529,6 @@ VALUES
 (3, 5, 5, 'Lakeside Eats', 'Relax by the lake and savor delicious food at this waterfront restaurant.', '123 Lakeview Drive, Caliente, Jalisco', 4, '11:00 AM', '567-890-1234', 'Waterfront', '$$', 'www.lakesideeats.com'),
 (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
 (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
+
+
+-- Commit test 
