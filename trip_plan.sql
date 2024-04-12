@@ -423,14 +423,3 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
-/* 
-(1, 1, 'San Antonio'),
-(2, 1, 'Dallas'),
-(3, 2, 'Poutine'),
-(4, 2, 'Le France'),
-(5, 3, 'Caliente'),
-(6, 3, 'Muy Caliente'),
-(7, 4, 'Es Frio'),
-(8, 4, 'Muy Mal'),
-(9, 5, 'Miami'),
-(10, 5, 'Tallahassee');*/
