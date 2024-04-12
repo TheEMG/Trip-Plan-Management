@@ -151,7 +151,7 @@ CREATE TABLE RESTAURANTS (
     Rating INT,
     Opening_hours VARCHAR(10),
     Phone_number VARCHAR(25),
-    Type VARCHAR(10),
+    Restaurant_Type VARCHAR(30),
     Price_range VARCHAR(10),
     Web_link VARCHAR(30),
 
@@ -468,7 +468,7 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
-INSERT INTO RATE VALUES
+-- INSERT INTO RATE VALUES
 -- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
 ()
 
@@ -477,3 +477,11 @@ INSERT INTO RATE VALUES
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Rating INT
 );*/
+
+INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
+VALUES
+(1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890', 'Cafe', '$$', 'www.cafeofdeath.com'),
+(2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', '456 Park Avenue, Dallas, Texas', 5, '6:00 PM', '234-567-8901', 'Fine Dining', '$$$', 'www.moonlitgrille.com'),
+(3, 5, 5, 'Lakeside Eats', 'Relax by the lake and savor delicious food at this waterfront restaurant.', '123 Lakeview Drive, Caliente, Jalisco', 4, '11:00 AM', '567-890-1234', 'Waterfront', '$$', 'www.lakesideeats.com'),
+(4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
+(5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
