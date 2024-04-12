@@ -491,7 +491,6 @@ INSERT INTO SHOPPING_MALLS VALUES
   (15, 15, 'Imagelink0015' );
  
 
-
 INSERT INTO TRIP_PLAN VALUES
   (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
   (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
