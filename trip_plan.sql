@@ -431,3 +431,30 @@ INSERT INTO SHOPPING_MALLS VALUES
   (3, 10, 10),
   (4, 12, 2),
   (5, 15, 5);
+
+  INSERT INTO IMAGES VALUES
+  (1, 1, 'Imagelink0001' ),
+  (2, 2, 'Imagelink0002' ),
+  (3, 3, 'Imagelink0003' ),
+  (4, 4, 'Imagelink0004' ),
+  (5, 5, 'Imagelink0005' ),
+  (6, 6, 'Imagelink0006' ),
+  (7, 7, 'Imagelink0007' ),
+  (8, 8, 'Imagelink0008' ),
+  (9, 9, 'Imagelink0009' ),
+  (10, 10, 'Imagelink0010' ),
+  (11, 11, 'Imagelink0011' ),
+  (12, 12, 'Imagelink0012' ),
+  (13, 13, 'Imagelink0013' ),
+  (14, 14, 'Imagelink0014' ),
+  (15, 15, 'Imagelink0015' );
+ 
+INSERT INTO RATE VALUES
+-- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
+()
+
+/*CREATE TABLE RATE(
+	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Rating INT
+);*/
