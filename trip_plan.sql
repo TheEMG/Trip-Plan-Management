@@ -353,8 +353,15 @@ Insert Into BUSINESS_OWNER VALUES
 (4, 'Mount Rushmore', 'Sight', '456-789-0123', 'Eric Gutierrez'), 
 (5, 'Lakeside Eats', 'Restaurant', '567-890-1234', 'Alex Johnson'),
 (6, 'Market Square Mall', 'Shopping Mall', '678-901-2345', 'Mike Brown'),
-(7, 'Historic Castle Tours', 'Sight', '789-012-3456', 'Mike Brown');
-
+(7, 'Historic Castle Tours', 'Sight', '789-012-3456', 'Mike Brown'),
+(8, 'Cheddars', 'Restaurant', '890-123-4567', 'Mario Lopez'),
+(9, 'Starlight Diner', 'Restaurant', '901-234-5678', 'Sarah Connor'),
+(10, 'Vista Ridge Mall', 'Shopping Mall', '912-345-6789', 'Luis Martinez'),
+(11, 'Crystal Lake View', 'Sight', '923-456-7890', 'Anna Rivera'),
+(12, 'Summit Peak Mall', 'Shopping Mall', '934-567-8901', 'Carlos Esteban'),
+(13, 'Ancient Ruins Excursion', 'Sight', '945-678-9012', 'Fiona Grace'),
+(14, 'National Yellow Park','Sight','911-234-5678','Farensi Luclata'),
+(15, 'City Lights Mall', 'Shopping Mall', '977-901-2345', 'Emily Clark');
 /*
     STATE data (State_ID, State_name, Country_Name)
 */
