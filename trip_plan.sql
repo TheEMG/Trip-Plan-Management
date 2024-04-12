@@ -530,5 +530,11 @@ VALUES
 (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
 (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
 
-
+-- COMMENT (Comment_ID, Destination_ID, Member_ID, Dislikes, Likes, Content_Rating, Comment_Date, Posting_Time)
+INSERT INTO COMMENTS VALUES
+  (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
+  (2, 2, 2, 10, 7, 3, '2019-04-20', '02:00:00'),
+  (3, 3, 3, 15, 11, 4, '2020-09-01', '15:15:15'),
+  (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
+  (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');
 -- Commit test 
