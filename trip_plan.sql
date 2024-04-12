@@ -151,7 +151,7 @@ CREATE TABLE RESTAURANTS (
     Rating INT,
     Opening_hours VARCHAR(10),
     Phone_number VARCHAR(25),
-    Type VARCHAR(10),
+    Restaurant_Type VARCHAR(30),
     Price_range VARCHAR(10),
     Web_link VARCHAR(30),
 
@@ -468,12 +468,65 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
-INSERT INTO RATE VALUES
+/*INSERT INTO RATE VALUES
 -- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
-()
+();*/
 
 /*CREATE TABLE RATE(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Rating INT
 );*/
+
+INSERT INTO SIGHTS VALUES
+-- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = $)
+(1, 4, 4, 26.69),
+(2, 7, 7, 32.69),
+(3, 11, 1, 4.2069),
+(4, 13, 3, 80.085),
+(5, 14, 4, 26.50);
+
+/*
+INSERT INTO USER_ACTION VALUES
+-- (MEMBER_ID = INT, COMMENT_ID = INT, USER_LIKES ='BOOL', USER_DISLIKES = 'BOOL', USER_REPLY ="TEXT")
+(1, 1, TRUE, FALSE, "USER REPLY"),
+(2, 2, FALSE, TRUE, "USER REPLY"),
+(3, 3, TRUE, TRUE, "USER REPLY"),
+(4, 4, FALSE, TRUE, "USER REPLY"),
+(5, 5, TRUE, TRUE, "USER REPLY"),
+(6, 6, FALSE, TRUE, "USER REPLY"),
+(7, 7, TRUE, FALSE, "USER REPLY"),
+(8, 8, FALSE, TRUE, "USER REPLY"),
+(9, 9, TRUE, FALSE, "USER REPLY"),
+(10, 10, FALSE, TRUE, "USER REPLY"),
+(11, 11, TRUE, TRUE, "USER REPLY"),
+(12, 12, FALSE, FALSE, "USER REPLY"),
+(13, 13, FALSE, TRUE, "USER REPLY"),
+(14, 14, TRUE, FALSE, "USER REPLY"),
+(15, 15, FALSE, TRUE, "USER REPLY"); */
+
+/*CREATE TABLE USER_ACTION(
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Comment_ID INT, -- Foreign Key referring to PK of COMMENTS, add constraint later
+	User_Likes BOOLEAN,
+	User_Dislikes BOOLEAN,
+	User_Reply TEXT*/
+
+/*INSERT INTO COMMENTS VALUES
+();*/
+
+/*CREATE TABLE COMMENTS(
+    Comment_ID INT,
+    Destination_ID INT,
+    Member_ID INT, 
+    Dislikes INT, 
+    Likes INT,
+    Content_Rating INT,
+    Comment_Date Date,
+    Posting_Time TIME,
+
+    PRIMARY KEY (Comment_ID)
+);*/
+
+
+    
