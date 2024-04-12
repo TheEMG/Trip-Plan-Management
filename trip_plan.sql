@@ -494,9 +494,9 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
--- INSERT INTO RATE VALUES
+INSERT INTO RATE VALUES
 -- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
--- ()
+()
 
 /*CREATE TABLE RATE(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
