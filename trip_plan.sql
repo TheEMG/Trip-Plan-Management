@@ -123,6 +123,7 @@ CREATE TABLE CITY(
 CREATE TABLE TRAVEL_ATTRACTIONS (
     Attraction_ID INT, -- Primary key
     City_ID INT, -- Foreign Key referring to PK of CITY, add constraint
+    Owner_ID INT, -- Foreign Key referring to PK of BUSINESS_OWNER, add constraint later
     Attraction_name VARCHAR(25),
     Attraction_description VARCHAR(250),
     Attraction_address VARCHAR(100),
@@ -223,6 +224,9 @@ ALTER TABLE CITY
 
 ALTER TABLE TRAVEL_ATTRACTIONS
     ADD FOREIGN KEY (City_ID) REFERENCES CITY (City_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    ADD FOREIGN KEY (Owner_ID) REFERENCES BUSINESS_OWNER (Owner_ID)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
