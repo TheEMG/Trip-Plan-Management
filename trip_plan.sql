@@ -136,7 +136,7 @@ CREATE TABLE TRAVEL_ATTRACTIONS (
 
 CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
     Attraction_ID INT, -- Foreign key referring to PK of ATTRACTION, add constraint later
-    Ways_of_travel VARCHAR(10),
+    Ways_of_travel VARCHAR(30),
 
     PRIMARY KEY (Ways_of_travel)
 );
@@ -443,6 +443,32 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
 
+--  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Way_of_Travel) FOR SIMPLICITY ways of travel, vehicle, walking , bus, helicopter, donkey ride 
+-- Using 'INSERT IGNORE' to avoid errors due to duplicate entries.
+-- Duplicate entries might exist because each attraction can only have each mode of transport listed once.
+INSERT IGNORE INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
+(1, 'Vehicle'),
+(1, 'Bus'),
+(1, 'Walking'),
+(1, 'Donkey Ride'),
+(2, 'Helicopter'),
+(2, 'Vehicle'),
+(3, 'Bus'),
+(4, 'Helicopter'),
+(4, 'Bus'),
+(5, 'Vehicle'),
+(6, 'Walking'),
+(7, 'Donkey Ride'),
+(8, 'Vehicle'),
+(9, 'Vehicle'),
+(10, 'Bus'),
+(11, 'Helicopter'),
+(12, 'Vehicle'),
+(13, 'Helicopter'),
+(14, 'Helicopter'),
+(14, 'Bus'),
+(15, 'Vehicle');
+
 /* SHOPPING_MALLS (Mall_ID, Attraction_ID, City_ID) */
 INSERT INTO SHOPPING_MALLS VALUES
   (1, 3, 3),
@@ -470,13 +496,31 @@ INSERT INTO SHOPPING_MALLS VALUES
  
 -- INSERT INTO RATE VALUES
 -- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
-()
+-- ()
 
 /*CREATE TABLE RATE(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Rating INT
 );*/
+
+/*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
+INSERT INTO TRIP_PLAN VALUES
+  (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
+  (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
+  (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
+  (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
+  (5, 5, 500.00, '2023-02-15', '2023-02-28', 13, 'Around the US in 13 Days', "Very fast hot air balloon."),
+  (6, 6, 45.00, '2024-03-01', '2024-04-05', 35, 'Very Long Trip', "Went across the street."),
+  (7, 7, 1010.10, '2010-10-01', '2010-10-10', 10, '10 Day Trip', "Pretty basic trip."),
+  (8, 8, 900.00, '2009-11-08', '2009-11-30', 22, 'Thanksgiving Trip', "Visited my family for Thanksgiving."),
+  (9, 9, 30250.00, '2011-11-11', '2011-11-12', 1, 'Las Vegas', "Went to Vegas, lost it all :("),
+  (10, 10, 1500.00, '2002-01-01', '2001-01-10', 10, 'Travel Bus Vacation', "Took a ride around with a travel bus."),
+  (11, 11, 2500.00, '2005-7-15', '2005-7-17', 2, 'Fun Trip', "Went on a trip for a couple days."),
+  (12, 12, 1000.00, '2019-05-06', '2005-06-07', 32, 'Month Long Trip', "Took a month long trip, it was really fun!"),
+  (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
+  (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
+  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer");
 
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
