@@ -383,7 +383,7 @@ INSERT INTO CITY VALUES
 (10, 5, 'Tallahassee');
 
 -- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
---rating = int, Opening_hours = '', Phone_number = '')
+-- rating = int, Opening_hours = '', Phone_number = '')
 INSERT INTO TRAVEL_ATTRACTIONS VALUES
 (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', 
 '123 Main Street, Anytown, USA', 4, '9:00 AM', '123-456-7890'),
