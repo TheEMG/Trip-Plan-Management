@@ -376,7 +376,6 @@ INSERT INTO STATE VALUES
 (7, 'Guerrero', 'Mexico'),
 (8, 'Alberta', 'Canada');
 
--- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
 (1, 1, 'San Antonio'),
 (2, 1, 'Dallas'),
@@ -389,7 +388,6 @@ INSERT INTO CITY VALUES
 (9, 5, 'Miami'),
 (10, 5, 'Tallahassee');
 
--- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
 INSERT INTO DESTINATION VALUES 
 (1, 'A great place to experience some freedom', 'USA', 1),
 (2, 'Discover a hidden world within ancient landscapes where nature whispers old secrets.', 'USA', 2),
@@ -407,11 +405,7 @@ INSERT INTO DESTINATION VALUES
 (14, 'Gateway to the Canadian Rockies', 'Canada', 14),
 (15, 'Rich in history and home to iconic landmarks', 'Canada', 15);
 
-
--- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
--- rating = int, Opening_hours = '', Phone_number = '')
 INSERT INTO TRAVEL_ATTRACTIONS VALUES
--- Att ID, CityID, BusinessID
 (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', 
 '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890'),
 (2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', 
@@ -469,7 +463,7 @@ INSERT IGNORE INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
 (14, 'Bus'),
 (15, 'Vehicle');
 
-/* SHOPPING_MALLS (Mall_ID, Attraction_ID, City_ID) */
+
 INSERT INTO SHOPPING_MALLS VALUES
   (1, 3, 3),
   (2, 6, 6),
@@ -494,17 +488,8 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
-INSERT INTO RATE VALUES
--- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
-()
 
-/*CREATE TABLE RATE(
-	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
-	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
-	Rating INT
-);*/
 
-/*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
   (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
   (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
@@ -530,5 +515,55 @@ VALUES
 (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
 (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
 
+INSERT INTO USER_ACTION VALUES
+(1, 1, TRUE, FALSE, "USER REPLY"),
+(2, 2, FALSE, TRUE, "USER REPLY"),
+(3, 3, TRUE, TRUE, "USER REPLY"),
+(4, 4, FALSE, TRUE, "USER REPLY"),
+(5, 5, TRUE, TRUE, "USER REPLY"),
+(6, 6, FALSE, TRUE, "USER REPLY"),
+(7, 7, TRUE, FALSE, "USER REPLY"),
+(8, 8, FALSE, TRUE, "USER REPLY"),
+(9, 9, TRUE, FALSE, "USER REPLY"),
+(10, 10, FALSE, TRUE, "USER REPLY"),
+(11, 11, TRUE, TRUE, "USER REPLY"),
+(12, 12, FALSE, FALSE, "USER REPLY"),
+(13, 13, FALSE, TRUE, "USER REPLY"),
+(14, 14, TRUE, FALSE, "USER REPLY"),
+(15, 15, FALSE, TRUE, "USER REPLY"); 
 
--- Commit test 
+
+INSERT INTO ASSOCIATED_MEMBERS VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (5, 5),
+  (6, 6),
+  (7, 7),
+  (8, 8),
+  (9, 9),
+  (10, 10),
+  (11, 11),
+  (12, 12),
+  (13, 13),
+  (14, 14),
+  (15, 15);
+
+INSERT INTO RATE VALUES
+  (1, 1, 4),
+  (2, 2, 5),
+  (3, 3, 4),
+  (4, 4, 5),
+  (5, 5, 4),
+  (6, 6, 4),
+  (7, 7, 4),
+  (8, 8, 5),
+  (9, 9, 4),
+  (10, 10, 3),
+  (11, 11, 5),
+  (12, 12, 4),
+  (13, 13, 4),
+  (14, 14, 5),
+  (15, 15, 5);
+
