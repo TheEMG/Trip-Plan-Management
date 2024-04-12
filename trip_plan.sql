@@ -389,6 +389,25 @@ INSERT INTO CITY VALUES
 (9, 5, 'Miami'),
 (10, 5, 'Tallahassee');
 
+-- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
+INSERT INTO DESTINATION VALUES 
+(1, 'A great place to experience some freedom', 'USA', 1),
+(2, 'Discover a hidden world within ancient landscapes where nature whispers old secrets.', 'USA', 2),
+(3, 'Step into the heart of neon lights where the pulse of the city hides its true face.', 'USA', 3),
+(4, 'Unravel the tales of the earth carved deep into this vast and enigmatic chasm.', 'USA', 4),
+(5, 'Wander through mystical valleys and serene cliffs where natures untouched beauty reigns.', 'USA', 5),
+(6, 'Venture into the heart of traditions where ancient ruins tell stories of timeless splendor.', 'Mexico', 6),
+(7, 'Experience the enigmatic beauty of cenotes, where water mirrors the sky in hidden depths.', 'Mexico', 7),
+(8, 'Immerse yourself in the vibrant streets where each corner offers a new mystery to unravel.', 'Mexico', 8),
+(9, 'Descubre un paraíso escondido donde la naturaleza y la cultura se entrelazan en una danza eterna.', 'Mexico', 9),  -- This is in Spanish
+(10, 'Trace the echoes of civilizations past among the shadows of pyramids shrouded in mystery.', 'Mexico', 10),
+(11, 'A vibrant city with diverse culture', 'Canada', 11),
+(12, 'A blend of historic charm and modern flair', 'Canada', 12),
+(13, 'Surrounded by stunning natural beauty', 'Canada', 13),
+(14, 'Gateway to the Canadian Rockies', 'Canada', 14),
+(15, 'Rich in history and home to iconic landmarks', 'Canada', 15);
+
+
 -- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
 -- rating = int, Opening_hours = '', Phone_number = '')
 INSERT INTO TRAVEL_ATTRACTIONS VALUES
