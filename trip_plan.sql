@@ -122,7 +122,7 @@ CREATE TABLE CITY(
 
 CREATE TABLE TRAVEL_ATTRACTIONS (
     Attraction_ID INT, -- Primary key
-    City_ID INT,
+    City_ID INT, -- Foreign Key referring to PK of CITY, add constraint
     Attraction_name VARCHAR(25),
     Attraction_description VARCHAR(250),
     Attraction_address VARCHAR(100),
@@ -218,6 +218,11 @@ ALTER TABLE PLANNED_ATTRACTIONS
 /*Zach's ALTER TABLES*/
 ALTER TABLE CITY
     ADD FOREIGN KEY (State_ID) REFERENCES STATE (State_ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;
+
+ALTER TABLE TRAVEL_ATTRACTIONS
+    ADD FOREIGN KEY (City_ID) REFERENCES CITY (City_ID)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
