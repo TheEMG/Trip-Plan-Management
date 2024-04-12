@@ -55,7 +55,7 @@ CREATE TABLE USER_ACTION(
 CREATE TABLE EDIT(
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Destination_ID INT, -- Foreign Key referring to PK of DESTINATION, add constraint later
-	Date_Modified BOOLEAN
+	Date_Modified DATE
 );
 
 CREATE TABLE ASSOCIATED_MEMBERS(
@@ -376,6 +376,7 @@ INSERT INTO STATE VALUES
 (7, 'Guerrero', 'Mexico'),
 (8, 'Alberta', 'Canada');
 
+-- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
 (1, 1, 'San Antonio'),
 (2, 1, 'Dallas'),
@@ -388,6 +389,7 @@ INSERT INTO CITY VALUES
 (9, 5, 'Miami'),
 (10, 5, 'Tallahassee');
 
+-- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
 INSERT INTO DESTINATION VALUES 
 (1, 'A great place to experience some freedom', 'USA', 1),
 (2, 'Discover a hidden world within ancient landscapes where nature whispers old secrets.', 'USA', 2),
@@ -405,7 +407,11 @@ INSERT INTO DESTINATION VALUES
 (14, 'Gateway to the Canadian Rockies', 'Canada', 14),
 (15, 'Rich in history and home to iconic landmarks', 'Canada', 15);
 
+
+-- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
+-- rating = int, Opening_hours = '', Phone_number = '')
 INSERT INTO TRAVEL_ATTRACTIONS VALUES
+-- Att ID, CityID, BusinessID
 (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', 
 '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890'),
 (2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', 
@@ -437,8 +443,6 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
 
-
-
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Way_of_Travel) FOR SIMPLICITY ways of travel, vehicle, walking , bus, helicopter, donkey ride 
 -- Using 'INSERT IGNORE' to avoid errors due to duplicate entries.
 -- Duplicate entries might exist because each attraction can only have each mode of transport listed once.
@@ -465,7 +469,7 @@ INSERT IGNORE INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
 (14, 'Bus'),
 (15, 'Vehicle');
 
-
+/* SHOPPING_MALLS (Mall_ID, Attraction_ID, City_ID) */
 INSERT INTO SHOPPING_MALLS VALUES
   (1, 3, 3),
   (2, 6, 6),
@@ -490,7 +494,17 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
+-- INSERT INTO RATE VALUES
+-- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
 
+
+/*CREATE TABLE RATE(
+	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
+	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Rating INT
+);*/
+
+/*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
   (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
   (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
@@ -600,3 +614,23 @@ INSERT INTO RATE VALUES
   (14, 14, 5),
   (15, 15, 5);
 
+INSERT INTO EDIT VALUES		
+    (1, 1, '2023-03-15'),
+    (2, 2, '2023-06-22'),
+    (3, 3, '2023-09-11'),
+    (4, 4, '2023-02-28'),
+    (5, 5, '2023-10-07'),
+    (6, 6, '2023-08-19'),
+    (7, 7, '2023-05-04'),
+    (8, 8, '2023-12-30'),
+    (9, 9, '2023-01-10'),
+    (10, 10, '2023-07-26'),
+    (11, 11, '2023-04-18'),
+    (12, 12, '2023-11-14'),
+    (13, 13, '2023-04-02'),
+    (14, 14, '2023-11-25'),
+    (15, 15, '2023-08-01');
+
+
+
+-- Commit test 
