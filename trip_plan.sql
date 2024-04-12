@@ -136,7 +136,7 @@ CREATE TABLE TRAVEL_ATTRACTIONS (
 
 CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
     Attraction_ID INT, -- Foreign key referring to PK of ATTRACTION, add constraint later
-    Ways_of_travel VARCHAR(10),
+    Ways_of_travel VARCHAR(30),
 
     PRIMARY KEY (Ways_of_travel)
 );
@@ -443,6 +443,32 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
 (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
 '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
 
+--  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Way_of_Travel) FOR SIMPLICITY ways of travel, vehicle, walking , bus, helicopter, donkey ride 
+-- Using 'INSERT IGNORE' to avoid errors due to duplicate entries.
+-- Duplicate entries might exist because each attraction can only have each mode of transport listed once.
+INSERT IGNORE INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
+(1, 'Vehicle'),
+(1, 'Bus'),
+(1, 'Walking'),
+(1, 'Donkey Ride'),
+(2, 'Helicopter'),
+(2, 'Vehicle'),
+(3, 'Bus'),
+(4, 'Helicopter'),
+(4, 'Bus'),
+(5, 'Vehicle'),
+(6, 'Walking'),
+(7, 'Donkey Ride'),
+(8, 'Vehicle'),
+(9, 'Vehicle'),
+(10, 'Bus'),
+(11, 'Helicopter'),
+(12, 'Vehicle'),
+(13, 'Helicopter'),
+(14, 'Helicopter'),
+(14, 'Bus'),
+(15, 'Vehicle');
+
 /* SHOPPING_MALLS (Mall_ID, Attraction_ID, City_ID) */
 INSERT INTO SHOPPING_MALLS VALUES
   (1, 3, 3),
@@ -468,65 +494,12 @@ INSERT INTO SHOPPING_MALLS VALUES
   (14, 14, 'Imagelink0014' ),
   (15, 15, 'Imagelink0015' );
  
-/*INSERT INTO RATE VALUES
+INSERT INTO RATE VALUES
 -- (PLAN_ID = INT, MEMBER_ID = INT, RATING)
-();*/
+()
 
 /*CREATE TABLE RATE(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Rating INT
 );*/
-
-INSERT INTO SIGHTS VALUES
--- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = $)
-(1, 4, 4, 26.69),
-(2, 7, 7, 32.69),
-(3, 11, 1, 4.2069),
-(4, 13, 3, 80.085),
-(5, 14, 4, 26.50);
-
-/*
-INSERT INTO USER_ACTION VALUES
--- (MEMBER_ID = INT, COMMENT_ID = INT, USER_LIKES ='BOOL', USER_DISLIKES = 'BOOL', USER_REPLY ="TEXT")
-(1, 1, TRUE, FALSE, "USER REPLY"),
-(2, 2, FALSE, TRUE, "USER REPLY"),
-(3, 3, TRUE, TRUE, "USER REPLY"),
-(4, 4, FALSE, TRUE, "USER REPLY"),
-(5, 5, TRUE, TRUE, "USER REPLY"),
-(6, 6, FALSE, TRUE, "USER REPLY"),
-(7, 7, TRUE, FALSE, "USER REPLY"),
-(8, 8, FALSE, TRUE, "USER REPLY"),
-(9, 9, TRUE, FALSE, "USER REPLY"),
-(10, 10, FALSE, TRUE, "USER REPLY"),
-(11, 11, TRUE, TRUE, "USER REPLY"),
-(12, 12, FALSE, FALSE, "USER REPLY"),
-(13, 13, FALSE, TRUE, "USER REPLY"),
-(14, 14, TRUE, FALSE, "USER REPLY"),
-(15, 15, FALSE, TRUE, "USER REPLY"); */
-
-/*CREATE TABLE USER_ACTION(
-	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
-	Comment_ID INT, -- Foreign Key referring to PK of COMMENTS, add constraint later
-	User_Likes BOOLEAN,
-	User_Dislikes BOOLEAN,
-	User_Reply TEXT*/
-
-/*INSERT INTO COMMENTS VALUES
-();*/
-
-/*CREATE TABLE COMMENTS(
-    Comment_ID INT,
-    Destination_ID INT,
-    Member_ID INT, 
-    Dislikes INT, 
-    Likes INT,
-    Content_Rating INT,
-    Comment_Date Date,
-    Posting_Time TIME,
-
-    PRIMARY KEY (Comment_ID)
-);*/
-
-
-    
