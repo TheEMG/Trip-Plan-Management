@@ -2,6 +2,7 @@
 DROP SCHEMA IF EXISTS Erics;
 CREATE SCHEMA Erics;
 USE Erics;
+
 /*REORGINZED the table attributes with following format PK, Foreign key , reaming attributes */
 CREATE TABLE AUTHORIZED_MEMBER(
 	Member_ID INT,
@@ -20,7 +21,7 @@ CREATE TABLE AUTHORIZED_MEMBER(
 CREATE TABLE TRIP_PLAN(
 	Plan_ID INT,
     Member_ID INT, -- Foreign Key refering to PK of AUTHORIZED_MEMBER, add contraint later
-    Potential_Cost FLOAT(10,2),
+    Potential_Cost DECIMAL(10,2),
     Start_Date DATE,
     End_Date DATE,
     Duration TINYINT UNSIGNED,
@@ -49,7 +50,9 @@ CREATE TABLE USER_ACTION(
 	Comment_ID INT, -- Foreign Key referring to PK of COMMENTS, add constraint later
 	User_Likes BOOLEAN,
 	User_Dislikes BOOLEAN,
-	User_Reply TEXT
+	User_Reply TEXT,
+    
+    PRIMARY KEY(Member_ID, Comment_ID)
 );
 
 CREATE TABLE EDIT(
@@ -87,10 +90,10 @@ CREATE TABLE COMMENTS(
 
 CREATE TABLE BUSINESS_OWNER(
     Owner_ID INT,
-    Business_Name VARCHAR(30),
+    Business_Name VARCHAR(50),
     Business_Type VARCHAR(30), -- CHANGED type attribute to business type for clarity
     Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
-    Contact_Info VARCHAR(30), --  THIS is our "contact person" should i change this to contanct person im not sure where this contact info
+    Contact_Info VARCHAR(30),
 
     PRIMARY KEY (Owner_ID)
 );
@@ -178,11 +181,10 @@ CREATE TABLE SHOPPING_MALLS(
 CREATE TABLE COUNTRY(
     Country_Name VARCHAR(25),
     
-    PRIMARY KEY( Country_Name)
+    PRIMARY KEY(Country_Name)
 );
 
 /* Emilio's Branch Changes Start */
-    
 ALTER TABLE USER_ACTION
     ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
     ON DELETE CASCADE
@@ -251,9 +253,6 @@ ALTER TABLE COMMENTS
 	ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
 	 ON DELETE CASCADE
      ON UPDATE CASCADE;
-
--- ALTER TABLE BUISINESS_OWNER ? NO NEED TO ALTER BUISNESS OWNER TABLE 
-
 /*Eric Alter Table END */
 
 /*Nick Alter Table*/
@@ -274,7 +273,7 @@ ALTER TABLE CITY
 
 /*Johnny Alter Table*/
 ALTER TABLE SIGHTS
-ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID) -- Wrong double check the naming i think thats the issue. I removed the "s" Eric-O
+ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID)
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
@@ -283,7 +282,7 @@ ON UPDATE CASCADE;
 
 
 ALTER TABLE SHOPPING_MALLS
-ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID) -- Wrong double check the naming. I removed the "s" Eric-O
+ADD FOREIGN KEY (Attraction_ID) REFERENCES TRAVEL_ATTRACTIONS(Attraction_ID)
 ON DELETE CASCADE
 ON UPDATE CASCADE,
 ADD FOREIGN KEY (City_ID) REFERENCES CITY(City_ID)
@@ -291,12 +290,7 @@ ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 
--- Eric O's Alter Table Statements
-
--- No Foreign Key needed for AUTHORIZED_MEMBER
-
--- No Foreign Key needed for COUNTRY 
-    
+-- Eric O's Alter Table Statements    
 ALTER TABLE TRIP_PLAN
     ADD FOREIGN KEY (Member_ID) REFERENCES AUTHORIZED_MEMBER (Member_ID)
     ON DELETE CASCADE
@@ -314,58 +308,56 @@ ALTER TABLE RATE
     ADD FOREIGN KEY (Plan_ID) REFERENCES TRIP_PLAN (Plan_ID)
     ON DELETE CASCADE
     ON UPDATE CASCADE;    
-    
 -- End of Eric O's Alter Table Statements 
 
-
 /*Country Relation data */
-INSERT INTO COUNTRY (Country_Name) VALUES 
-    ('USA'), ('Canada'), ('Mexico');
+INSERT INTO COUNTRY VALUES -- (Country_Name) VALUES 
+    ('USA'), 
+    ('Canada'), 
+    ('Mexico');
 
 /*Authorized Member data
     Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
 */
 INSERT INTO AUTHORIZED_MEMBER VALUES
-    (1, TRUE, 10, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
+    (1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
     (2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
-    (3, TRUE, 15, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
+    (3, TRUE, 25, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
     (4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
-    (5, TRUE, 12, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
+    (5, TRUE, 53, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
     (6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
-    (7, TRUE, 20, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
+    (7, TRUE, 27, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
     (8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
-    (9, TRUE, 11, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
+    (9, TRUE, 73, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
     (10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
-    (11, TRUE, 18, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
+    (11, TRUE, 81, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
     (12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
-    (13, TRUE, 14, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
+    (13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
     (14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
-    (15, TRUE, 17, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+    (15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
 
 /*
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
-    This makes it seem like its buisnesses not buisness owners 
+    This makes it seem like its buisnesses not buisness owners
 */
-Insert Into BUSINESS_OWNER VALUES
-    (1, 'Cafe of Death', 'Restaurant', '123-456-7890', 'Eric Gutierrez'),
-    (2, 'Moonlit Grille', 'Restaurant', '234-567-8901', 'Jane Doe'), 
-    (3, 'Broadway Mall', 'Shopping Mall', '345-678-9012', 'Eric Gutierrez'),
-    (4, 'Mount Rushmore', 'Sight', '456-789-0123', 'Eric Gutierrez'), 
-    (5, 'Lakeside Eats', 'Restaurant', '567-890-1234', 'Alex Johnson'),
-    (6, 'Market Square Mall', 'Shopping Mall', '678-901-2345', 'Mike Brown'),
-    (7, 'Historic Castle Tours', 'Sight', '789-012-3456', 'Mike Brown'),
-    (8, 'Cheddars', 'Restaurant', '890-123-4567', 'Mario Lopez'),
-    (9, 'Starlight Diner', 'Restaurant', '901-234-5678', 'Sarah Connor'),
-    (10, 'Vista Ridge Mall', 'Shopping Mall', '912-345-6789', 'Luis Martinez'),
-    (11, 'Crystal Lake View', 'Sight', '923-456-7890', 'Anna Rivera'),
-    (12, 'Summit Peak Mall', 'Shopping Mall', '934-567-8901', 'Carlos Esteban'),
-    (13, 'Ancient Ruins Excursion', 'Sight', '945-678-9012', 'Fiona Grace'),
-    (14, 'National Yellow Park','Sight','911-234-5678','Farensi Luclata'),
-    (15, 'City Lights Mall', 'Shopping Mall', '977-901-2345', 'Emily Clark');
-/*
-    STATE data (State_ID, State_name, Country_Name)
-*/
+INSERT INTO BUSINESS_OWNER VALUES
+    (1, 'FlavorFusion Restaurants Inc.', 'Restaurant', '123-456-7890', 'Eric Gutierrez'),
+    (2, 'Infinity Plaza Holdings', 'Restaurant', '234-567-8901', 'Jane Doe'), 
+    (3, 'SparklePeak Retail Enterprises', 'Shopping Mall', '345-678-9012', 'Eric Gutierrez'),
+    (4, 'Wanderlust Travel Ventures', 'Sight', '456-789-0123', 'Eric Gutierrez'), 
+    (5, 'Epicurean Eats Corporation', 'Restaurant', '567-890-1234', 'Alex Johnson'),
+    (6, 'Tranquil Trails Hospitality Group', 'Shopping Mall', '678-901-2345', 'Mike Brown'),
+    (7, 'UrbanGrove Mall Enterprises', 'Sight', '789-012-3456', 'Mike Brown'),
+    (8, 'Enigma Expeditions Corporation', 'Restaurant', '890-123-4567', 'Mario Lopez'),
+    (9, 'Serenity Cove Resorts Inc.', 'Restaurant', '901-234-5678', 'Sarah Connor'),
+    (10, 'Gastronomica Global Holdings', 'Shopping Mall', '912-345-6789', 'Luis Martinez'),
+    (11, 'Renaissance Retail Ventures', 'Sight', '923-456-7890', 'Anna Rivera'),
+    (12, 'Coastal Breeze Hospitality Group', 'Shopping Mall', '934-567-8901', 'Carlos Esteban'),
+    (13, 'FusionFlare Entertainment Inc.', 'Sight', '945-678-9012', 'Fiona Grace'),
+    (14, 'LuxeLane Shopping Enterprises','Sight','911-234-5678','Farensi Luclata'),
+    (15, 'NovaVoyage Travel Corporation', 'Shopping Mall', '977-901-2345', 'Emily Clark');
 
+ -- STATE data (State_ID, State_name, Country_Name)
 INSERT INTO STATE VALUES
     (1, 'Texas', 'USA'),
     (2, 'Ontario', 'Canada'),
@@ -551,22 +543,12 @@ INSERT INTO COMMENTS VALUES
   (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
   (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');
   
-INSERT IGNORE INTO USER_ACTION VALUES
+INSERT INTO USER_ACTION VALUES
     (1, 1, TRUE, FALSE, "USER REPLY"),
     (2, 2, FALSE, TRUE, "USER REPLY"),
     (3, 3, TRUE, TRUE, "USER REPLY"),
     (4, 4, FALSE, TRUE, "USER REPLY"),
-    (5, 5, TRUE, TRUE, "USER REPLY"),
-    (6, 6, FALSE, TRUE, "USER REPLY"),
-    (7, 7, TRUE, FALSE, "USER REPLY"),
-    (8, 8, FALSE, TRUE, "USER REPLY"),
-    (9, 9, TRUE, FALSE, "USER REPLY"),
-    (10, 10, FALSE, TRUE, "USER REPLY"),
-    (11, 11, TRUE, TRUE, "USER REPLY"),
-    (12, 12, FALSE, FALSE, "USER REPLY"),
-    (13, 13, FALSE, TRUE, "USER REPLY"),
-    (14, 14, TRUE, FALSE, "USER REPLY"),
-    (15, 15, FALSE, TRUE, "USER REPLY"); 
+    (5, 5, TRUE, TRUE, "USER REPLY");
 
 INSERT INTO ASSOCIATED_MEMBERS VALUES
   (1, 1),
