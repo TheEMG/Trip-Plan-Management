@@ -313,7 +313,7 @@ ALTER TABLE RATE
 /*Country Relation data */
 INSERT INTO COUNTRY VALUES -- (Country_Name) VALUES 
     ('USA'), 
-    ('Canada'), 
+    ('France'), 
     ('Mexico');
 
 /*Authorized Member data
@@ -360,13 +360,13 @@ INSERT INTO BUSINESS_OWNER VALUES
  -- STATE data (State_ID, State_name, Country_Name)
 INSERT INTO STATE VALUES
     (1, 'Texas', 'USA'),
-    (2, 'Ontario', 'Canada'),
+    (2, 'Ontario', 'France'),
     (3, 'Jalisco', 'Mexico'),
     (4, 'Sonora', 'Mexico'),
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Alberta', 'Canada');
+    (8, 'Alberta', 'France');
 
 -- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
@@ -393,11 +393,11 @@ INSERT INTO DESTINATION VALUES
     (8, 'Immerse yourself in the vibrant streets where each corner offers a new mystery to unravel.', 'Mexico', 8),
     (9, 'Descubre un paraíso escondido donde la naturaleza y la cultura se entrelazan en una danza eterna.', 'Mexico', 9),  -- This is in Spanish
     (10, 'Trace the echoes of civilizations past among the shadows of pyramids shrouded in mystery.', 'Mexico', 10),
-    (11, 'A vibrant city with diverse culture', 'Canada', 11),
-    (12, 'A blend of historic charm and modern flair', 'Canada', 12),
-    (13, 'Surrounded by stunning natural beauty', 'Canada', 13),
-    (14, 'Gateway to the Canadian Rockies', 'Canada', 14),
-    (15, 'Rich in history and home to iconic landmarks', 'Canada', 15);
+    (11, 'A vibrant city with diverse culture', 'France', 11),
+    (12, 'A blend of historic charm and modern flair', 'France', 12),
+    (13, 'Surrounded by stunning natural beauty', 'France', 13),
+    (14, 'Gateway to the Canadian Rockies', 'France', 14),
+    (15, 'Rich in history and home to iconic landmarks', 'France', 15);
 
 
 -- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
