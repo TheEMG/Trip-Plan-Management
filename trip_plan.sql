@@ -366,7 +366,10 @@ INSERT INTO STATE VALUES
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Alberta', 'France');
+    (8, 'Alberta', 'France'),
+    (9, 'Île-de-France', 'France'),  -- Region where Paris is located
+    (10, 'Red wine', 'France'), 
+    (11, 'White wine', 'France');  
 
 -- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
@@ -379,7 +382,10 @@ INSERT INTO CITY VALUES
     (7, 4, 'Es Frio'),
     (8, 4, 'Muy Mal'),
     (9, 5, 'Miami'),
-    (10, 5, 'Tallahassee');
+    (10, 5, 'Tallahassee'),
+    (11, 8, 'Nice'),
+    (12, 8, 'Lyon'),
+    (13, 8, 'Marseille');
 
 -- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
 INSERT INTO DESTINATION VALUES 
@@ -433,7 +439,13 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     (14, 4, 14, 'National Yellow Park', 'Discover the beauty of nature at National Yellow Park.', 
     '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
     (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
-    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
+    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345'),
+    (16, 11, 14, 'Garden of Lights', 'Stroll through illuminated gardens in a mesmerizing nighttime experience.', 
+    '112 Lumière Blvd, Le France, Ontario', 5, '8:00 PM', '100-234-5678'),
+    (17, 12, 15, 'The Art Walk', 'Explore this open-air gallery featuring modern art and sculptures by local artists.', 
+    '233 Artisan Way, Le France, Ontario', 4, '9:00 AM', '100-345-6789'),
+    (18, 13, 14, 'Chateau de Vin', 'Visit a historic vineyard and enjoy wine tasting tours detailing regional winemaking techniques.', 
+    '450 Vineyard Path, Alberta, France', 5, '10:00 AM', '100-456-7890');
 
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Ways_of_Travel)
 INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
@@ -600,6 +612,29 @@ INSERT INTO EDIT VALUES
     (13, 13, '2023-04-02'),
     (14, 14, '2023-11-25'),
     (15, 15, '2023-08-01');
+
+-- Query: Retrieve the names of the 5 most desirable France cities to visit
+SELECT 
+    CITY.City_Name,  -- The name of the city from the CITY table
+    COUNT(DISTINCT TRIP_PLAN.Plan_ID) AS NumberOfTrips  -- Counts unique trip plans per city
+FROM 
+    TRIP_PLAN  -- The table that contains details about each trip plan
+JOIN 
+    PLANNED_ATTRACTIONS ON TRIP_PLAN.Plan_ID = PLANNED_ATTRACTIONS.Plan_ID  -- Linking trip plans to attractions
+JOIN 
+    TRAVEL_ATTRACTIONS ON PLANNED_ATTRACTIONS.Attraction_ID = TRAVEL_ATTRACTIONS.Attraction_ID  -- Connects planned attractions to actual attractions
+JOIN 
+    CITY ON TRAVEL_ATTRACTIONS.City_ID = CITY.City_ID  -- Joins attractions to their cities
+JOIN 
+    STATE ON CITY.State_ID = STATE.State_ID  -- Joins cities to their states to filter by country
+WHERE 
+    STATE.Country_Name = 'France'  -- Filters cities to only include those in France
+GROUP BY 
+    CITY.City_Name  -- Groups results by city name
+ORDER BY 
+    NumberOfTrips DESC  -- Orders cities by the number of trip plans, descending
+LIMIT 5;  -- Limits results to the top 5 cities
+
 
 -- PRINTS TABLES
 SELECT * FROM COUNTRY;
