@@ -5,6 +5,9 @@ USE Erics;
 
 /*REORGINZED the table attributes with following format PK, Foreign key , reaming attributes */
 CREATE TABLE AUTHORIZED_MEMBER(
+	FName VARCHAR(50),
+    MInit VARCHAR(1),
+    LName VARCHAR(50),
 	Member_ID INT,
     Is_Preferred BOOLEAN,
 	-- If we are required to pull a list of who follows who, may have to add new table
@@ -61,7 +64,7 @@ CREATE TABLE EDIT(
 	Date_Modified DATE
 );
 
-CREATE TABLE ASSOCIATED_MEMBERS(
+CREATE TABLE ASSOCIATED_MEMBER(
 	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
 	Member_ID INT -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 );
@@ -102,14 +105,14 @@ CREATE TABLE DESTINATION(
     Destination_ID INT,
     Destination_Description TEXT,
     Country_Name VARCHAR(20),
-    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
+    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 
 PRIMARY KEY (Destination_ID)
 );
 
 CREATE TABLE STATE(
     State_ID INT,
-    State_name VARCHAR(20),
+    State_name VARCHAR(30),
     Country_Name VARCHAR(25), -- Foreign Key referring to PK of COUNTRY, add constraint later
     
     PRIMARY KEY (State_ID)
@@ -127,7 +130,7 @@ CREATE TABLE TRAVEL_ATTRACTIONS (
     Attraction_ID INT, -- Primary key
     City_ID INT, -- Foreign Key referring to PK of CITY, add constraint
     Owner_ID INT, -- Foreign Key referring to PK of BUSINESS_OWNER, add constraint later
-    Attraction_name VARCHAR(25),
+    Attraction_name VARCHAR(35),
     Attraction_description VARCHAR(250),
     Attraction_address VARCHAR(100),
     Rating INT,
@@ -163,11 +166,11 @@ CREATE TABLE RESTAURANTS (
 
 CREATE TABLE SIGHTS(
     Sight_ID INT,
-    Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
+    Attraction_ID INT,
     City_ID INT, -- Foreign Key
-    Ticket_Price INT,
+    Ticket_Price DECIMAL(10, 4),
 
-    PRIMARY KEY(Sight_ID)
+    PRIMARY KEY(Sight_ID, Attraction_ID)
 );
 
 CREATE TABLE SHOPPING_MALLS(
@@ -201,7 +204,7 @@ ALTER TABLE EDIT
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
-ALTER TABLE ASSOCIATED_MEMBERS
+ALTER TABLE ASSOCIATED_MEMBER
     ADD FOREIGN KEY (Plan_ID) REFERENCES TRIP_PLAN (Plan_ID)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
@@ -317,24 +320,24 @@ INSERT INTO COUNTRY VALUES -- (Country_Name) VALUES
     ('Mexico');
 
 /*Authorized Member data
-    Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
+    FName, MInit, LName, Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
 */
 INSERT INTO AUTHORIZED_MEMBER VALUES
-    (1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
-    (2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
-    (3, TRUE, 25, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
-    (4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
-    (5, TRUE, 53, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
-    (6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
-    (7, TRUE, 27, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
-    (8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
-    (9, TRUE, 73, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
-    (10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
-    (11, TRUE, 81, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
-    (12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
-    (13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
-    (14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
-    (15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+    ("Emma","J","Smith", 1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
+    ("Liam","M","Johnson", 2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
+    ("Olivia","N","Williams", 3, TRUE, 25, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
+    ("Noah","R","Brown", 4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
+    ("Ava","S","Jones", 5, TRUE, 53, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
+    ("William","L","Garcia", 6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
+    ("Sophia","K","Miller", 7, TRUE, 27, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
+    ("James","P","Davis", 8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
+    ("Isabella","T","Rodriguez", 9, TRUE, 73, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
+    ("Benjamin","A","Martinez", 10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
+    ("Mia","B","Hernandez", 11, TRUE, 81, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
+    ("Alexander","C","Lopez", 12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
+    ("Charlotte","E","Gonzalez", 13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
+    ("Amelia","G","Anderson", 14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
+    ("Vicente", "", "Fernandez", 15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
 
 /*
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
@@ -366,7 +369,24 @@ INSERT INTO STATE VALUES
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Alberta', 'France');
+    (8, 'Île-de-France', 'France'),
+    (9, 'Auvergne-Rhône-Alpes', 'France'),
+    (10, 'Hauts-de-France', 'France'),
+    (11, 'Provence-Alpes-Côte d''Azur', 'France'),
+    (12, 'Grand Est', 'France'),
+    (13, 'Occitanie', 'France'),
+    (14, 'Nouvelle-Aquitaine', 'France'),
+    (15, 'Brittany', 'France'),
+    (16, 'Pays de la Loire', 'France'),
+    (17, 'Centre-Val de Loire', 'France'),
+    (18, 'Normandy', 'France'),
+    (19, 'Bourgogne-Franche-Comté', 'France'),
+    (20, 'Corsica', 'France'),
+    (21, 'French Guiana', 'France'),
+    (22, 'Guadeloupe', 'France'),
+    (23, 'Martinique', 'France'),
+    (24, 'Mayotte', 'France'),
+    (25, 'Réunion', 'France');
 
 -- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
@@ -379,7 +399,26 @@ INSERT INTO CITY VALUES
     (7, 4, 'Es Frio'),
     (8, 4, 'Muy Mal'),
     (9, 5, 'Miami'),
-    (10, 5, 'Tallahassee');
+    (10, 5, 'Tallahassee'),
+    (11, 8, 'Paris'),
+    (12, 9, 'Lyon'),
+    (13, 10, 'Lille'),
+    (14, 11, 'Marseille'),
+    (15, 12, 'Strasbourg'),
+    (16, 13, 'Toulouse'),
+    (17, 14, 'Bordeaux'),
+    (18, 15, 'Rennes'),
+    (19, 16, 'Nantes'),
+    (20, 17, 'Tours'),
+    (21, 18, 'Rouen'),
+    (22, 19, 'Dijon'),
+    (23, 20, 'Ajaccio'),
+    (24, 21, 'Cayenne'),
+    (25, 22, 'Basse-Terre'),
+    (26, 23, 'Fort-de-France'),
+    (27, 24, 'Mamoudzou'),
+    (28, 25, 'Saint-Denis');
+
 
 -- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
 INSERT INTO DESTINATION VALUES 
@@ -398,7 +437,6 @@ INSERT INTO DESTINATION VALUES
     (13, 'Surrounded by stunning natural beauty', 'France', 13),
     (14, 'Gateway to the Canadian Rockies', 'France', 14),
     (15, 'Rich in history and home to iconic landmarks', 'France', 15);
-
 
 -- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
 -- rating = int, Opening_hours = '', Phone_number = '')
@@ -433,7 +471,25 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     (14, 4, 14, 'National Yellow Park', 'Discover the beauty of nature at National Yellow Park.', 
     '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
     (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
-    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
+    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345'),
+    (16, 11, 4, 'Eiffel Tower', 'Iconic wrought-iron lattice tower offering city views & visitors can ascend by stairs or elevator.', 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France', 4, '9:00 AM', '+33 892 70 12 39'),
+    (17, 12, 7, 'Basilique Notre-Dame de Fourvière', '19th-century basilica with Byzantine architecture, a large golden statue of the Virgin Mary & city views.', '8 Place de Fourvière, 69005 Lyon, France', 5, '10:00 AM', '+33 4 78 25 86 31'),
+    (18, 13, 11, 'Vieux-Lille', 'Historic district with Flemish architecture, boutiques, cafes, and the Palais des Beaux-Arts de Lille museum.', 'Vieux-Lille, Lille, France', 4, '9:30 AM', '+33 3 20 49 60 06'),
+    (19, 14, 14, 'Vieux Port', 'Historic harbor offering boat tours & seafood restaurants, plus landmarks like Fort Saint-Jean & Abbaye Saint-Victor.', 'Quai du Port, 13002 Marseille, France', 4, '10:00 AM', '+33 4 91 39 57 82'),
+    (20, 15, 4, 'La Petite France', 'Picturesque medieval quarter with narrow streets, half-timbered houses, canals, and historic buildings.', '67000 Strasbourg, France', 4, '9:00 AM', '+33 3 88 52 28 28'),
+    (21, 16, 7, 'Cité de l\'Espace', 'Interactive exhibits & attractions focused on space exploration & astronomy, plus an IMAX theater.', 'Avenue Jean Gonord, 31500 Toulouse, France', 4, '10:00 AM', '+33 5 67 22 23 24'),
+    (22, 17, 11, 'La Cité du Vin', 'Modern, multimedia museum on all things wine, with exhibits, tastings & a wine bar with panoramic views.', '134 Quai de Bacalan, 33300 Bordeaux, France', 4, '10:00 AM', '+33 5 56 16 20 20'),
+    (23, 18, 14, 'Parc du Thabor', 'Botanical garden with themed gardens, a greenhouse, statues & an aviary, plus walking paths & a playground.', 'Place Saint-Mélaine, 35000 Rennes, France', 4, '7:30 AM', '+33 2 23 62 17 42'),
+    (24, 19, 4, 'Machines of the Isle of Nantes', 'Museum with huge, animatronic animal sculptures (a 12m-tall elephant!), plus a carousel & boat rides.', 'Parc des Chantiers, Boulevard Léon Bureau, 44200 Nantes, France', 4, '10:00 AM', '+33 2 40 12 10 00'),
+    (25, 20, 7, 'Musée des Beaux-Arts d''Ajaccio', 'Art museum featuring Corsican, Italian & French works, plus sculptures, drawings & decorative arts.', '8 Rue Mazarine, 20000 Ajaccio, France', 4, '10:00 AM', '+33 4 95 21 09 86'),
+    (26, 21, 11, 'Fort Cépérou', '17th-century fortification offering panoramic views of the city, plus cultural exhibits & guided tours.', 'Route de la Madeleine, 97300 Cayenne, French Guiana', 4, '9:00 AM', '+594 594 30 94 47'),
+    (27, 22, 14, 'Fort Delgrès', 'Historic fort offering panoramic views of the sea & city, plus a museum on local history & culture.', 'Route de la Riviera, 97100 Basse-Terre, Guadeloupe', 4, '9:00 AM', '+590 590 89 18 27'),
+    (28, 23, 4, 'La Savane', 'City park with wide lawns, walking paths & statues, plus a monument to Empress Josephine & a botanical garden.', 'Avenue Général de Gaulle, Fort-de-France, Martinique', 4, '6:00 AM', '+596 596 75 03 65'),
+    (29, 24, 7, 'Plage de N\'Gouja', 'Scenic beach known for its clear waters & white sand, plus opportunities for snorkeling & sea turtle spotting.', 'N\'Gouja Beach, Mayotte', 4, '6:00 AM', '+262 639 21 83 44'),
+    (30, 25, 11, 'Plage de l\'Hermitage', 'Popular beach with calm waters, white sand & palm trees, plus nearby cafes & shops.', 'Plage de l''Hermitage, Réunion', 4, '7:00 AM', '+262 262 21 05 00'),
+    (31, 26, 14, 'Musée Départemental de Mayotte', 'Museum featuring exhibits on the history, culture, and natural environment of Mayotte, including artifacts and displays.', 'Maison Cœffier, 5 Rue du Maréchal Leclerc, Mamoudzou, Mayotte', 4, '9:00 AM', '+262 269 61 19 72'),
+    (32, 27, 4, 'Fort Boyard', 'Historic fortification located between the Île-d''Aix and the Île d''Oléron in the Pertuis d''Antioche straits.', '1 Fort Boyard, 17300 Île-d''Aix, France', 4, '10:00 AM', '+33 5 46 84 08 00'),
+    (33, 28, 7, 'La Soufrière', 'Active stratovolcano located on the island of Basse-Terre in Guadeloupe. Popular hiking destination.', 'La Soufrière, Basse-Terre, Guadeloupe', 4, '6:00 AM', '+590 590 93 86 46');
 
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Ways_of_Travel)
 INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
@@ -500,7 +556,9 @@ INSERT INTO TRIP_PLAN VALUES
   (12, 12, 1000.00, '2019-05-06', '2005-06-07', 32, 'Month Long Trip', "Took a month long trip, it was really fun!"),
   (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
-  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer");
+  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
+  (16, 15, 17500.00, '2024-06-01', '2024-07-01', 30, 'Musical Tour of France', 'Embarking on a journey across France to explore its diverse musical landscape, from classical concerts in Paris to jazz festivals in Nice.'),
+  (16, 15, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.');
 
   -- Planned ID (Plain_ID, Attraction_ID, Arrival_Date, Arrival time, departure date, Departure_time)
 INSERT INTO PLANNED_ATTRACTIONS VALUES
@@ -518,7 +576,35 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (12, 12, '2024-04-25', '09:00', '2024-04-25', '12:00'), -- Visit to Summit Peak Mall
     (13, 13, '2024-04-26', '09:00', '2024-04-26', '16:00'), -- Exploring Ancient Ruins
     (14, 14, '2024-04-27', '07:00', '2024-04-27', '10:00'), -- Morning in National Yellow Park
-    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'); -- City Lights Mall exploration
+    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
+    (1, 2, '2024-04-15', '09:00', '2024-04-15', '10:30'),
+	(2, 1, '2024-04-15', '20:00', '2024-04-15', '23:00'),
+	(3, 4, '2024-04-16', '12:00', '2024-04-16', '15:00'),
+	(4, 3, '2024-04-17', '08:00', '2024-04-17', '11:00'),
+	(5, 6, '2024-04-18', '11:00', '2024-04-18', '14:00'),
+	(6, 5, '2024-04-19', '09:00', '2024-04-19', '17:00'),
+	(7, 8, '2024-04-20', '10:00', '2024-04-20', '13:00'),
+	(8, 7, '2024-04-21', '12:00', '2024-04-21', '14:00'),
+	(9, 15, '2024-04-22', '14:30', '2024-04-22', '16:30'),
+	(10, 12, '2024-04-23', '10:30', '2024-04-23', '12:30'),
+    (16, 16, '2024-05-10', '09:00:00', '2024-05-10', '12:00:00'), -- Eiffel Tower in Paris
+    (16, 17, '2024-05-11', '10:00:00', '2024-05-11', '13:00:00'), -- Basilique Notre-Dame de Fourvière in Lyon
+    (16, 18, '2024-05-12', '09:30:00', '2024-05-12', '12:30:00'), -- Vieux-Lille in Lille
+    (16, 19, '2024-05-13', '10:00:00', '2024-05-13', '13:00:00'), -- Vieux Port in Marseille
+    (16, 20, '2024-05-14', '09:00:00', '2024-05-14', '12:00:00'), -- La Petite France in Strasbourg
+    (16, 21, '2024-05-15', '10:00:00', '2024-05-15', '13:00:00'), -- Cité de l'Espace in Toulouse
+    (16, 22, '2024-05-16', '09:30:00', '2024-05-16', '12:30:00'), -- La Cité du Vin in Bordeaux
+    (16, 23, '2024-05-17', '09:00:00', '2024-05-17', '12:00:00'), -- Parc du Thabor in Rennes
+    (16, 24, '2024-05-18', '10:00:00', '2024-05-18', '13:00:00'), -- Machines of the Isle of Nantes in Nantes
+    (16, 25, '2024-05-19', '09:00:00', '2024-05-19', '12:00:00'), -- Musée des Beaux-Arts d'Ajaccio in Ajaccio
+    (16, 26, '2024-05-20', '10:00:00', '2024-05-20', '13:00:00'), -- Fort Cépérou in Cayenne
+    (16, 27, '2024-05-21', '09:30:00', '2024-05-21', '12:30:00'), -- Fort Boyard in Île-d'Aix
+    (16, 28, '2024-05-22', '09:00:00', '2024-05-22', '12:00:00'), -- La Soufrière in Basse-Terre
+    (16, 29, '2024-05-23', '10:00:00', '2024-05-23', '13:00:00'), -- Plage de N'Gouja in Mayotte
+    (16, 30, '2024-05-24', '09:00:00', '2024-05-24', '12:00:00'), -- Plage de l'Hermitage in Réunion
+    (16, 31, '2024-05-25', '10:00:00', '2024-05-25', '13:00:00'), -- Musée Départemental de Mayotte in Mamoudzou
+    (16, 32, '2024-05-26', '09:30:00', '2024-05-26', '12:30:00'), -- Fort Boyard in Île-d'Aix
+    (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'); -- La Soufrière in Basse-Terre
 
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
@@ -529,12 +615,31 @@ VALUES
     (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
 
 INSERT INTO SIGHTS VALUES
--- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = $)
+-- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = DECIMAL)
     (1, 4, 4, 26.69),
     (2, 7, 7, 32.69),
     (3, 11, 1, 4.2069),
     (4, 13, 3, 80.085),
-    (5, 14, 4, 26.50);
+    (5, 14, 4, 26.50),
+    (6, 16, 11, 45.50),
+    (7, 17, 12, 30.25),
+    (8, 18, 13, 25.75),
+    (9, 19, 14, 35.80),
+    (10, 20, 15, 40.20),
+    (11, 21, 16, 55.30),
+    (12, 22, 17, 65.40),
+    (13, 23, 18, 70.90),
+    (14, 24, 19, 85.20),
+    (15, 25, 20, 95.75),
+    (16, 26, 21, 150.00),
+    (17, 27, 22, 250.00),
+    (18, 28, 23, 350.00),
+    (19, 29, 24, 450.00),
+    (20, 30, 25, 550.00),
+    (21, 31, 26, 650.00),
+    (22, 32, 27, 750.00),
+    (23, 33, 28, 850.00);
+
 
 INSERT INTO COMMENTS VALUES
   (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
@@ -550,7 +655,7 @@ INSERT INTO USER_ACTION VALUES
     (4, 4, FALSE, TRUE, "USER REPLY"),
     (5, 5, TRUE, TRUE, "USER REPLY");
 
-INSERT INTO ASSOCIATED_MEMBERS VALUES
+INSERT INTO ASSOCIATED_MEMBER VALUES
   (1, 1),
   (2, 2),
   (3, 3),
@@ -618,7 +723,7 @@ SELECT * FROM RESTAURANTS;
 SELECT * FROM SIGHTS;
 SELECT * FROM COMMENTS;
 SELECT * FROM USER_ACTION;
-SELECT * FROM ASSOCIATED_MEMBERS;
+SELECT * FROM ASSOCIATED_MEMBER;
 SELECT * FROM RATE;
 SELECT * FROM EDIT;
 -- Commit test
