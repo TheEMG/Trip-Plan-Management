@@ -320,7 +320,7 @@ INSERT INTO COUNTRY VALUES -- (Country_Name) VALUES
     ('Mexico');
 
 /*Authorized Member data
-    Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
+    FName, MInit, LName, Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
 */
 INSERT INTO AUTHORIZED_MEMBER VALUES
     ("Emma","J","Smith", 1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
@@ -556,7 +556,9 @@ INSERT INTO TRIP_PLAN VALUES
   (12, 12, 1000.00, '2019-05-06', '2005-06-07', 32, 'Month Long Trip', "Took a month long trip, it was really fun!"),
   (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
-  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer");
+  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
+  (16, 15, 17500.00, '2024-06-01', '2024-07-01', 30, 'Musical Tour of France', 'Embarking on a journey across France to explore its diverse musical landscape, from classical concerts in Paris to jazz festivals in Nice.'),
+  (16, 15, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.');
 
   -- Planned ID (Plain_ID, Attraction_ID, Arrival_Date, Arrival time, departure date, Departure_time)
 INSERT INTO PLANNED_ATTRACTIONS VALUES
@@ -584,7 +586,25 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
 	(7, 8, '2024-04-20', '10:00', '2024-04-20', '13:00'),
 	(8, 7, '2024-04-21', '12:00', '2024-04-21', '14:00'),
 	(9, 15, '2024-04-22', '14:30', '2024-04-22', '16:30'),
-	(10, 12, '2024-04-23', '10:30', '2024-04-23', '12:30');
+	(10, 12, '2024-04-23', '10:30', '2024-04-23', '12:30'),
+    (16, 16, '2024-05-10', '09:00:00', '2024-05-10', '12:00:00'), -- Eiffel Tower in Paris
+    (16, 17, '2024-05-11', '10:00:00', '2024-05-11', '13:00:00'), -- Basilique Notre-Dame de Fourvière in Lyon
+    (16, 18, '2024-05-12', '09:30:00', '2024-05-12', '12:30:00'), -- Vieux-Lille in Lille
+    (16, 19, '2024-05-13', '10:00:00', '2024-05-13', '13:00:00'), -- Vieux Port in Marseille
+    (16, 20, '2024-05-14', '09:00:00', '2024-05-14', '12:00:00'), -- La Petite France in Strasbourg
+    (16, 21, '2024-05-15', '10:00:00', '2024-05-15', '13:00:00'), -- Cité de l'Espace in Toulouse
+    (16, 22, '2024-05-16', '09:30:00', '2024-05-16', '12:30:00'), -- La Cité du Vin in Bordeaux
+    (16, 23, '2024-05-17', '09:00:00', '2024-05-17', '12:00:00'), -- Parc du Thabor in Rennes
+    (16, 24, '2024-05-18', '10:00:00', '2024-05-18', '13:00:00'), -- Machines of the Isle of Nantes in Nantes
+    (16, 25, '2024-05-19', '09:00:00', '2024-05-19', '12:00:00'), -- Musée des Beaux-Arts d'Ajaccio in Ajaccio
+    (16, 26, '2024-05-20', '10:00:00', '2024-05-20', '13:00:00'), -- Fort Cépérou in Cayenne
+    (16, 27, '2024-05-21', '09:30:00', '2024-05-21', '12:30:00'), -- Fort Boyard in Île-d'Aix
+    (16, 28, '2024-05-22', '09:00:00', '2024-05-22', '12:00:00'), -- La Soufrière in Basse-Terre
+    (16, 29, '2024-05-23', '10:00:00', '2024-05-23', '13:00:00'), -- Plage de N'Gouja in Mayotte
+    (16, 30, '2024-05-24', '09:00:00', '2024-05-24', '12:00:00'), -- Plage de l'Hermitage in Réunion
+    (16, 31, '2024-05-25', '10:00:00', '2024-05-25', '13:00:00'), -- Musée Départemental de Mayotte in Mamoudzou
+    (16, 32, '2024-05-26', '09:30:00', '2024-05-26', '12:30:00'), -- Fort Boyard in Île-d'Aix
+    (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'); -- La Soufrière in Basse-Terre
 
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
