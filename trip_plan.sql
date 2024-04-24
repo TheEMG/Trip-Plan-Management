@@ -166,11 +166,11 @@ CREATE TABLE RESTAURANTS (
 
 CREATE TABLE SIGHTS(
     Sight_ID INT,
-    Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
+    Attraction_ID INT,
     City_ID INT, -- Foreign Key
-    Ticket_Price INT,
+    Ticket_Price DECIMAL(10, 4),
 
-    PRIMARY KEY(Sight_ID)
+    PRIMARY KEY(Sight_ID, Attraction_ID)
 );
 
 CREATE TABLE SHOPPING_MALLS(
@@ -438,7 +438,6 @@ INSERT INTO DESTINATION VALUES
     (14, 'Gateway to the Canadian Rockies', 'France', 14),
     (15, 'Rich in history and home to iconic landmarks', 'France', 15);
 
-
 -- (Attraction_ID = int, City ID = int, attraction_name ='', attraction description = '', attraction_address = '', 
 -- rating = int, Opening_hours = '', Phone_number = '')
 INSERT INTO TRAVEL_ATTRACTIONS VALUES
@@ -487,8 +486,10 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     (27, 22, 14, 'Fort Delgrès', 'Historic fort offering panoramic views of the sea & city, plus a museum on local history & culture.', 'Route de la Riviera, 97100 Basse-Terre, Guadeloupe', 4, '9:00 AM', '+590 590 89 18 27'),
     (28, 23, 4, 'La Savane', 'City park with wide lawns, walking paths & statues, plus a monument to Empress Josephine & a botanical garden.', 'Avenue Général de Gaulle, Fort-de-France, Martinique', 4, '6:00 AM', '+596 596 75 03 65'),
     (29, 24, 7, 'Plage de N\'Gouja', 'Scenic beach known for its clear waters & white sand, plus opportunities for snorkeling & sea turtle spotting.', 'N\'Gouja Beach, Mayotte', 4, '6:00 AM', '+262 639 21 83 44'),
-    (30, 25, 11, 'Plage de l\'Hermitage', 'Popular beach with calm waters, white sand & palm trees, plus nearby cafes & shops.', 'Plage de l''Hermitage, Réunion', 4, '7:00 AM', '+262 262 21 05 00');
-
+    (30, 25, 11, 'Plage de l\'Hermitage', 'Popular beach with calm waters, white sand & palm trees, plus nearby cafes & shops.', 'Plage de l''Hermitage, Réunion', 4, '7:00 AM', '+262 262 21 05 00'),
+    (31, 26, 14, 'Musée Départemental de Mayotte', 'Museum featuring exhibits on the history, culture, and natural environment of Mayotte, including artifacts and displays.', 'Maison Cœffier, 5 Rue du Maréchal Leclerc, Mamoudzou, Mayotte', 4, '9:00 AM', '+262 269 61 19 72'),
+    (32, 27, 4, 'Fort Boyard', 'Historic fortification located between the Île-d''Aix and the Île d''Oléron in the Pertuis d''Antioche straits.', '1 Fort Boyard, 17300 Île-d''Aix, France', 4, '10:00 AM', '+33 5 46 84 08 00'),
+    (33, 28, 7, 'La Soufrière', 'Active stratovolcano located on the island of Basse-Terre in Guadeloupe. Popular hiking destination.', 'La Soufrière, Basse-Terre, Guadeloupe', 4, '6:00 AM', '+590 590 93 86 46');
 
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Ways_of_Travel)
 INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
@@ -594,12 +595,31 @@ VALUES
     (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
 
 INSERT INTO SIGHTS VALUES
--- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = $)
+-- (SIGHT_ID INT, ATTRACTION_ID = INT, CITY_ID = INT, Ticket_Price = DECIMAL)
     (1, 4, 4, 26.69),
     (2, 7, 7, 32.69),
     (3, 11, 1, 4.2069),
     (4, 13, 3, 80.085),
-    (5, 14, 4, 26.50);
+    (5, 14, 4, 26.50),
+    (6, 16, 11, 45.50),
+    (7, 17, 12, 30.25),
+    (8, 18, 13, 25.75),
+    (9, 19, 14, 35.80),
+    (10, 20, 15, 40.20),
+    (11, 21, 16, 55.30),
+    (12, 22, 17, 65.40),
+    (13, 23, 18, 70.90),
+    (14, 24, 19, 85.20),
+    (15, 25, 20, 95.75),
+    (16, 26, 21, 150.00),
+    (17, 27, 22, 250.00),
+    (18, 28, 23, 350.00),
+    (19, 29, 24, 450.00),
+    (20, 30, 25, 550.00),
+    (21, 31, 26, 650.00),
+    (22, 32, 27, 750.00),
+    (23, 33, 28, 850.00);
+
 
 INSERT INTO COMMENTS VALUES
   (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
