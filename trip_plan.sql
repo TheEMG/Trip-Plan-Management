@@ -5,6 +5,9 @@ USE Erics;
 
 /*REORGINZED the table attributes with following format PK, Foreign key , reaming attributes */
 CREATE TABLE AUTHORIZED_MEMBER(
+	FName VARCHAR(50),
+    MInit VARCHAR(1),
+    LName VARCHAR(50),
 	Member_ID INT,
     Is_Preferred BOOLEAN,
 	-- If we are required to pull a list of who follows who, may have to add new table
@@ -320,21 +323,21 @@ INSERT INTO COUNTRY VALUES -- (Country_Name) VALUES
     Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Emails
 */
 INSERT INTO AUTHORIZED_MEMBER VALUES
-    (1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
-    (2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
-    (3, TRUE, 25, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
-    (4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
-    (5, TRUE, 53, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
-    (6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
-    (7, TRUE, 27, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
-    (8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
-    (9, TRUE, 73, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
-    (10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
-    (11, TRUE, 81, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
-    (12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
-    (13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
-    (14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
-    (15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+    ("Emma","J","Smith", 1, TRUE, 100, 1, '123 Maple Street', 'user1', 'pass123', 'user1@example.com'),
+    ("Liam","M","Johnson", 2, FALSE, 5, 2, '456 Oak Lane', 'user2', 'password2', 'user2@example.com'),
+    ("Olivia","N","Williams", 3, TRUE, 25, 3, '789 Pine Road', 'user3', 'password3', 'user3@example.com'),
+    ("Noah","R","Brown", 4, FALSE, 8, 4, '101 Apple Blvd', 'user4', 'password4', 'user4@example.com'),
+    ("Ava","S","Jones", 5, TRUE, 53, 5, '202 Berry Street', 'user5', 'password5', 'user5@example.com'),
+    ("William","L","Garcia", 6, FALSE, 4, 6, '303 Cherry Avenue', 'user6', 'password6', 'user6@example.com'),
+    ("Sophia","K","Miller", 7, TRUE, 27, 7, '404 Date Drive', 'user7', 'password7', 'user7@example.com'),
+    ("James","P","Davis", 8, FALSE, 9, 8, '505 Elm Street', 'user8', 'password8', 'user8@example.com'),
+    ("Isabella","T","Rodriguez", 9, TRUE, 73, 9, '606 Fir Lane', 'user9', 'password9', 'user9@example.com'),
+    ("Benjamin","A","Martinez", 10, FALSE, 7, 10, '707 Grape Road', 'user10', 'password10', 'user10@example.com'),
+    ("Mia","B","Hernandez", 11, TRUE, 81, 11, '808 Hickory Blvd', 'user11', 'password11', 'user11@example.com'),
+    ("Alexander","C","Lopez", 12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
+    ("Charlotte","E","Gonzalez", 13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
+    ("Amelia","G","Anderson", 14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
+    ("Vicente", "", "Fernandez", 15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
 
 /*
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
