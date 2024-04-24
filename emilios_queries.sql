@@ -6,7 +6,7 @@ USE Erics;
 
 /* Query 4. Retrieve the names and countries of all 
  * preferred users who never visited the US. */
-SELECT AuM.FName, AuM.LName 
+SELECT AuM.FName, AuM.LName
 FROM Authorized_Member AuM
 RIGHT JOIN Associated_Member AsM ON AuM.Member_ID = AsM.Member_ID
 INNER JOIN Planned_Attractions PA ON AsM.Plan_ID = PA.Plan_ID
@@ -22,3 +22,5 @@ GROUP BY AuM.Member_ID;
  * minimum and average daily cost per person, per day 
  * across all these related itineraries (considering 
  * restaurant and attraction cost only). */
+ 
+ 

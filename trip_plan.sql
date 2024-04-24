@@ -130,7 +130,7 @@ CREATE TABLE TRAVEL_ATTRACTIONS (
     Attraction_ID INT, -- Primary key
     City_ID INT, -- Foreign Key referring to PK of CITY, add constraint
     Owner_ID INT, -- Foreign Key referring to PK of BUSINESS_OWNER, add constraint later
-    Attraction_name VARCHAR(25),
+    Attraction_name VARCHAR(35),
     Attraction_description VARCHAR(250),
     Attraction_address VARCHAR(100),
     Rating INT,
@@ -399,7 +399,26 @@ INSERT INTO CITY VALUES
     (7, 4, 'Es Frio'),
     (8, 4, 'Muy Mal'),
     (9, 5, 'Miami'),
-    (10, 5, 'Tallahassee');
+    (10, 5, 'Tallahassee'),
+    (11, 8, 'Paris'),
+    (12, 9, 'Lyon'),
+    (13, 10, 'Lille'),
+    (14, 11, 'Marseille'),
+    (15, 12, 'Strasbourg'),
+    (16, 13, 'Toulouse'),
+    (17, 14, 'Bordeaux'),
+    (18, 15, 'Rennes'),
+    (19, 16, 'Nantes'),
+    (20, 17, 'Tours'),
+    (21, 18, 'Rouen'),
+    (22, 19, 'Dijon'),
+    (23, 20, 'Ajaccio'),
+    (24, 21, 'Cayenne'),
+    (25, 22, 'Basse-Terre'),
+    (26, 23, 'Fort-de-France'),
+    (27, 24, 'Mamoudzou'),
+    (28, 25, 'Saint-Denis');
+
 
 -- Destinations (Destination_ID, Destination_Description, Country_Name, Member_ID)
 INSERT INTO DESTINATION VALUES 
@@ -453,7 +472,23 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     (14, 4, 14, 'National Yellow Park', 'Discover the beauty of nature at National Yellow Park.', 
     '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
     (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
-    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345');
+    '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345'),
+    (16, 11, 4, 'Eiffel Tower', 'Iconic wrought-iron lattice tower offering city views & visitors can ascend by stairs or elevator.', 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France', 4, '9:00 AM', '+33 892 70 12 39'),
+    (17, 12, 7, 'Basilique Notre-Dame de Fourvière', '19th-century basilica with Byzantine architecture, a large golden statue of the Virgin Mary & city views.', '8 Place de Fourvière, 69005 Lyon, France', 5, '10:00 AM', '+33 4 78 25 86 31'),
+    (18, 13, 11, 'Vieux-Lille', 'Historic district with Flemish architecture, boutiques, cafes, and the Palais des Beaux-Arts de Lille museum.', 'Vieux-Lille, Lille, France', 4, '9:30 AM', '+33 3 20 49 60 06'),
+    (19, 14, 14, 'Vieux Port', 'Historic harbor offering boat tours & seafood restaurants, plus landmarks like Fort Saint-Jean & Abbaye Saint-Victor.', 'Quai du Port, 13002 Marseille, France', 4, '10:00 AM', '+33 4 91 39 57 82'),
+    (20, 15, 4, 'La Petite France', 'Picturesque medieval quarter with narrow streets, half-timbered houses, canals, and historic buildings.', '67000 Strasbourg, France', 4, '9:00 AM', '+33 3 88 52 28 28'),
+    (21, 16, 7, 'Cité de l\'Espace', 'Interactive exhibits & attractions focused on space exploration & astronomy, plus an IMAX theater.', 'Avenue Jean Gonord, 31500 Toulouse, France', 4, '10:00 AM', '+33 5 67 22 23 24'),
+    (22, 17, 11, 'La Cité du Vin', 'Modern, multimedia museum on all things wine, with exhibits, tastings & a wine bar with panoramic views.', '134 Quai de Bacalan, 33300 Bordeaux, France', 4, '10:00 AM', '+33 5 56 16 20 20'),
+    (23, 18, 14, 'Parc du Thabor', 'Botanical garden with themed gardens, a greenhouse, statues & an aviary, plus walking paths & a playground.', 'Place Saint-Mélaine, 35000 Rennes, France', 4, '7:30 AM', '+33 2 23 62 17 42'),
+    (24, 19, 4, 'Machines of the Isle of Nantes', 'Museum with huge, animatronic animal sculptures (a 12m-tall elephant!), plus a carousel & boat rides.', 'Parc des Chantiers, Boulevard Léon Bureau, 44200 Nantes, France', 4, '10:00 AM', '+33 2 40 12 10 00'),
+    (25, 20, 7, 'Musée des Beaux-Arts d''Ajaccio', 'Art museum featuring Corsican, Italian & French works, plus sculptures, drawings & decorative arts.', '8 Rue Mazarine, 20000 Ajaccio, France', 4, '10:00 AM', '+33 4 95 21 09 86'),
+    (26, 21, 11, 'Fort Cépérou', '17th-century fortification offering panoramic views of the city, plus cultural exhibits & guided tours.', 'Route de la Madeleine, 97300 Cayenne, French Guiana', 4, '9:00 AM', '+594 594 30 94 47'),
+    (27, 22, 14, 'Fort Delgrès', 'Historic fort offering panoramic views of the sea & city, plus a museum on local history & culture.', 'Route de la Riviera, 97100 Basse-Terre, Guadeloupe', 4, '9:00 AM', '+590 590 89 18 27'),
+    (28, 23, 4, 'La Savane', 'City park with wide lawns, walking paths & statues, plus a monument to Empress Josephine & a botanical garden.', 'Avenue Général de Gaulle, Fort-de-France, Martinique', 4, '6:00 AM', '+596 596 75 03 65'),
+    (29, 24, 7, 'Plage de N\'Gouja', 'Scenic beach known for its clear waters & white sand, plus opportunities for snorkeling & sea turtle spotting.', 'N\'Gouja Beach, Mayotte', 4, '6:00 AM', '+262 639 21 83 44'),
+    (30, 25, 11, 'Plage de l\'Hermitage', 'Popular beach with calm waters, white sand & palm trees, plus nearby cafes & shops.', 'Plage de l''Hermitage, Réunion', 4, '7:00 AM', '+262 262 21 05 00');
+
 
 --  TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (Attraction_ID, Ways_of_Travel)
 INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
