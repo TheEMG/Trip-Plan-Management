@@ -112,7 +112,7 @@ PRIMARY KEY (Destination_ID)
 
 CREATE TABLE STATE(
     State_ID INT,
-    State_name VARCHAR(20),
+    State_name VARCHAR(30),
     Country_Name VARCHAR(25), -- Foreign Key referring to PK of COUNTRY, add constraint later
     
     PRIMARY KEY (State_ID)
@@ -369,7 +369,24 @@ INSERT INTO STATE VALUES
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Alberta', 'France');
+    (8, 'Île-de-France', 'France'),
+    (9, 'Auvergne-Rhône-Alpes', 'France'),
+    (10, 'Hauts-de-France', 'France'),
+    (11, 'Provence-Alpes-Côte d''Azur', 'France'),
+    (12, 'Grand Est', 'France'),
+    (13, 'Occitanie', 'France'),
+    (14, 'Nouvelle-Aquitaine', 'France'),
+    (15, 'Brittany', 'France'),
+    (16, 'Pays de la Loire', 'France'),
+    (17, 'Centre-Val de Loire', 'France'),
+    (18, 'Normandy', 'France'),
+    (19, 'Bourgogne-Franche-Comté', 'France'),
+    (20, 'Corsica', 'France'),
+    (21, 'French Guiana', 'France'),
+    (22, 'Guadeloupe', 'France'),
+    (23, 'Martinique', 'France'),
+    (24, 'Mayotte', 'France'),
+    (25, 'Réunion', 'France');
 
 -- (City_ID = INT, State_ID = INT, "CITY_NAME")
 INSERT INTO CITY VALUES
@@ -521,7 +538,17 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (12, 12, '2024-04-25', '09:00', '2024-04-25', '12:00'), -- Visit to Summit Peak Mall
     (13, 13, '2024-04-26', '09:00', '2024-04-26', '16:00'), -- Exploring Ancient Ruins
     (14, 14, '2024-04-27', '07:00', '2024-04-27', '10:00'), -- Morning in National Yellow Park
-    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'); -- City Lights Mall exploration
+    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
+    (1, 2, '2024-04-15', '09:00', '2024-04-15', '10:30'),
+	(2, 1, '2024-04-15', '20:00', '2024-04-15', '23:00'),
+	(3, 4, '2024-04-16', '12:00', '2024-04-16', '15:00'),
+	(4, 3, '2024-04-17', '08:00', '2024-04-17', '11:00'),
+	(5, 6, '2024-04-18', '11:00', '2024-04-18', '14:00'),
+	(6, 5, '2024-04-19', '09:00', '2024-04-19', '17:00'),
+	(7, 8, '2024-04-20', '10:00', '2024-04-20', '13:00'),
+	(8, 7, '2024-04-21', '12:00', '2024-04-21', '14:00'),
+	(9, 15, '2024-04-22', '14:30', '2024-04-22', '16:30'),
+	(10, 12, '2024-04-23', '10:30', '2024-04-23', '12:30');
 
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
