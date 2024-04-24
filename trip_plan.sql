@@ -102,7 +102,7 @@ CREATE TABLE DESTINATION(
     Destination_ID INT,
     Destination_Description TEXT,
     Country_Name VARCHAR(20),
-    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBERS, add constraint later
+    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 
 PRIMARY KEY (Destination_ID)
 );
