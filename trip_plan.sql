@@ -14,7 +14,7 @@ CREATE TABLE AUTHORIZED_MEMBER(
     Num_Following INT,
     Ranking INT,
     Address VARCHAR(50),
-    User_Name VARCHAR(15),
+    User_Name VARCHAR(30),
     User_Password VARCHAR(50),
     Email VARCHAR(30),
     
@@ -28,7 +28,7 @@ CREATE TABLE TRIP_PLAN(
     Start_Date DATE,
     End_Date DATE,
     Duration TINYINT UNSIGNED,
-    Trip_Name VARCHAR(30),
+    Trip_Name VARCHAR(50),
     Purpose TEXT,
     
     PRIMARY KEY (Plan_ID)
@@ -38,7 +38,6 @@ CREATE TABLE IMAGES(
 	Image_ID INT,
 	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
 	Image_link VARCHAR(100),
-
     PRIMARY KEY (Image_ID)
 );
 
@@ -87,7 +86,6 @@ CREATE TABLE COMMENTS(
     Content_Rating INT,
     Comment_Date Date,
     Posting_Time TIME,
-
     PRIMARY KEY (Comment_ID)
 );
 
@@ -97,7 +95,6 @@ CREATE TABLE BUSINESS_OWNER(
     Business_Type VARCHAR(30), -- CHANGED type attribute to business type for clarity
     Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
     Contact_Info VARCHAR(30),
-
     PRIMARY KEY (Owner_ID)
 );
 
@@ -106,8 +103,7 @@ CREATE TABLE DESTINATION(
     Destination_Description TEXT,
     Country_Name VARCHAR(20),
     Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
-
-PRIMARY KEY (Destination_ID)
+    PRIMARY KEY (Destination_ID)
 );
 
 CREATE TABLE STATE(
@@ -122,7 +118,6 @@ CREATE TABLE CITY(
     City_ID INT,
     State_ID INT, -- Foreign Key referring to PK of STATE, add constraint later
     City_Name VARCHAR(25),
-
     PRIMARY KEY (City_ID)
 );
 
@@ -136,14 +131,12 @@ CREATE TABLE TRAVEL_ATTRACTIONS (
     Rating INT,
     Opening_hours VARCHAR(10), -- Assuming something like "9:00 AM"
     Phone_number VARCHAR(25),
-
     PRIMARY KEY (Attraction_ID)
 );
 
 CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
     Attraction_ID INT, -- Foreign key referring to PK of ATTRACTION, add constraint later
     Ways_of_travel VARCHAR(30),
-
     PRIMARY KEY (Attraction_ID, Ways_of_travel)
 );
 
@@ -160,7 +153,6 @@ CREATE TABLE RESTAURANTS (
     Restaurant_Type VARCHAR(30),
     Price_range VARCHAR(10),
     Web_link VARCHAR(30),
-
     PRIMARY KEY (Restaurant_ID)
 );
 
@@ -169,7 +161,6 @@ CREATE TABLE SIGHTS(
     Attraction_ID INT,
     City_ID INT, -- Foreign Key
     Ticket_Price DECIMAL(10, 4),
-
     PRIMARY KEY(Sight_ID, Attraction_ID)
 );
 
@@ -177,7 +168,6 @@ CREATE TABLE SHOPPING_MALLS(
    Mall_ID INT,
    Attraction_ID INT, -- Foreign Key. I removed the "s" Eric-O
    City_ID INT, -- Foreign Key
-
    PRIMARY KEY(Mall_ID)
 );
 
@@ -542,9 +532,9 @@ INSERT INTO SHOPPING_MALLS VALUES
 
 /*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
-  (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
+  (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Awesome Vacation', "Awesome vacation with the entire family."),
   (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
-  (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
+  (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip', "Insert text here."),
   (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
   (5, 5, 500.00, '2023-02-15', '2023-02-28', 13, 'Around the US in 13 Days', "Very fast hot air balloon."),
   (6, 6, 45.00, '2024-03-01', '2024-04-05', 35, 'Very Long Trip', "Went across the street."),
@@ -557,7 +547,6 @@ INSERT INTO TRIP_PLAN VALUES
   (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
   (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
-  (16, 15, 17500.00, '2024-06-01', '2024-07-01', 30, 'Musical Tour of France', 'Embarking on a journey across France to explore its diverse musical landscape, from classical concerts in Paris to jazz festivals in Nice.'),
   (16, 15, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.');
 
   -- Planned ID (Plain_ID, Attraction_ID, Arrival_Date, Arrival time, departure date, Departure_time)
@@ -577,16 +566,6 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (13, 13, '2024-04-26', '09:00', '2024-04-26', '16:00'), -- Exploring Ancient Ruins
     (14, 14, '2024-04-27', '07:00', '2024-04-27', '10:00'), -- Morning in National Yellow Park
     (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
-    (1, 2, '2024-04-15', '09:00', '2024-04-15', '10:30'),
-	(2, 1, '2024-04-15', '20:00', '2024-04-15', '23:00'),
-	(3, 4, '2024-04-16', '12:00', '2024-04-16', '15:00'),
-	(4, 3, '2024-04-17', '08:00', '2024-04-17', '11:00'),
-	(5, 6, '2024-04-18', '11:00', '2024-04-18', '14:00'),
-	(6, 5, '2024-04-19', '09:00', '2024-04-19', '17:00'),
-	(7, 8, '2024-04-20', '10:00', '2024-04-20', '13:00'),
-	(8, 7, '2024-04-21', '12:00', '2024-04-21', '14:00'),
-	(9, 15, '2024-04-22', '14:30', '2024-04-22', '16:30'),
-	(10, 12, '2024-04-23', '10:30', '2024-04-23', '12:30'),
     (16, 16, '2024-05-10', '09:00:00', '2024-05-10', '12:00:00'), -- Eiffel Tower in Paris
     (16, 17, '2024-05-11', '10:00:00', '2024-05-11', '13:00:00'), -- Basilique Notre-Dame de Fourvière in Lyon
     (16, 18, '2024-05-12', '09:30:00', '2024-05-12', '12:30:00'), -- Vieux-Lille in Lille
@@ -705,6 +684,7 @@ INSERT INTO EDIT VALUES
     (13, 13, '2023-04-02'),
     (14, 14, '2023-11-25'),
     (15, 15, '2023-08-01');
+
 
 -- PRINTS TABLES
 SELECT * FROM COUNTRY;
