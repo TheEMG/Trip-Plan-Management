@@ -1,3 +1,4 @@
+-- Active: 1712864545065@@127.0.0.1@3306@erics
 -- Statement just for development phase
 DROP SCHEMA IF EXISTS Erics;
 CREATE SCHEMA Erics;
@@ -334,7 +335,10 @@ INSERT INTO AUTHORIZED_MEMBER VALUES
     (12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
     (13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
     (14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
-    (15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+    (15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com'),
+    (16, FALSE, 7, 16, '1313 Mango Street', 'user16', 'password16', 'user16@example.com'), -- Eric added 
+    (17, TRUE, 72, 17, '1414 Orange Avenue', 'user17', 'password17', 'user17@example.com'),
+    (18, FALSE, 8, 18, '1515 Papaya Place', 'user18', 'password18', 'user18@example.com');
 
 /*
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
@@ -440,7 +444,7 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
     (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
     '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345'),
-    (16, 11, 14, 'Garden of Lights', 'Stroll through illuminated gardens in a mesmerizing nighttime experience.', 
+    (16, 11, 14, 'Garden of Lights', 'Stroll through illuminated gardens in a mesmerizing nighttime experience.', -- start change
     '112 Lumière Blvd, Le France, Ontario', 5, '8:00 PM', '100-234-5678'),
     (17, 12, 15, 'The Art Walk', 'Explore this open-air gallery featuring modern art and sculptures by local artists.', 
     '233 Artisan Way, Le France, Ontario', 4, '9:00 AM', '100-345-6789'),
@@ -498,8 +502,8 @@ INSERT INTO SHOPPING_MALLS VALUES
 
 /*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
-  (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
-  (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
+  (1, 1, 10000.00, '2018-12-02', '2018-12-010', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."), -- changed date for query 8
+  (2, 2, 1250.00, '2019-01-02', '2019-01-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),-- changed date for query 8
   (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
   (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
   (5, 5, 500.00, '2023-02-15', '2023-02-28', 13, 'Around the US in 13 Days', "Very fast hot air balloon."),
@@ -512,7 +516,12 @@ INSERT INTO TRIP_PLAN VALUES
   (12, 12, 1000.00, '2019-05-06', '2005-06-07', 32, 'Month Long Trip', "Took a month long trip, it was really fun!"),
   (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
-  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer");
+  (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
+  (16, 16, 800.00, '2009-01-15', '2009-02-15', 31, 'Winter Break', "Taking a break this winter"), -- Eric added
+  (17, 17, 900.00, '2009-04-10', '2009-05-11', 31, 'Spring Getaway', "Spring getaway to rejuvenate"),
+  (18, 18, 850.00, '2009-07-20', '2009-08-20', 31, 'Summer Escape', "Escape the city for summer");
+
+  
 
   -- Planned ID (Plain_ID, Attraction_ID, Arrival_Date, Arrival time, departure date, Departure_time)
 INSERT INTO PLANNED_ATTRACTIONS VALUES
@@ -530,7 +539,11 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (12, 12, '2024-04-25', '09:00', '2024-04-25', '12:00'), -- Visit to Summit Peak Mall
     (13, 13, '2024-04-26', '09:00', '2024-04-26', '16:00'), -- Exploring Ancient Ruins
     (14, 14, '2024-04-27', '07:00', '2024-04-27', '10:00'), -- Morning in National Yellow Park
-    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'); -- City Lights Mall exploration
+    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
+    (16, 16, '2024-04-29', '10:00', '2024-04-29', '14:00'), -- Eric added
+    (17, 17, '2024-04-30', '09:00', '2024-04-30', '13:00'),
+    (18, 18, '2024-05-01', '12:00', '2024-05-01', '16:00');
+
 
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
@@ -549,9 +562,9 @@ INSERT INTO SIGHTS VALUES
     (5, 14, 4, 26.50);
 
 INSERT INTO COMMENTS VALUES
-  (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
-  (2, 2, 2, 10, 7, 3, '2019-04-20', '02:00:00'),
-  (3, 3, 3, 15, 11, 4, '2020-09-01', '15:15:15'),
+  (1, 1, 1, 5, 3, 2, '2018-12-02', '10:00:00'), -- changed date for query 8
+  (2, 2, 2, 10, 7, 3, '2018-12-15', '02:00:00'),-- changed date for query 8
+  (3, 3, 3, 15, 11, 4, '2019-01-31', '15:15:15'), -- changed date for query 8
   (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
   (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');
   
@@ -632,9 +645,23 @@ WHERE
 GROUP BY 
     CITY.City_Name  -- Groups results by city name
 ORDER BY 
-    NumberOfTrips DESC  -- Orders cities by the number of trip plans, descending
+    NumberOfTrips DESC  -- Order cities by the number of trip plans, descending
 LIMIT 5;  -- Limits results to the top 5 cities
 
+-- Query 8. Retrieve the username and status of the member who either posted any comments or created any itinerary between 12/01/2018 and 1/31/2019.
+SELECT DISTINCT AM.User_Name, AM.Is_Preferred
+FROM AUTHORIZED_MEMBER AM
+WHERE AM.Member_ID IN (
+    -- Starting subquery to find member IDs from trip plans within specified date range
+    SELECT TP.Member_ID
+    FROM TRIP_PLAN TP
+    WHERE TP.Start_Date BETWEEN '2018-12-01' AND '2019-01-31' -- Checking if the start date of the trip is within the date range
+    OR TP.End_Date BETWEEN '2018-12-01' AND '2019-01-31' -- Checking again if but this time the end date??? I think this is necessary 
+    UNION -- Combinie member IDs from comments with the same date range
+    SELECT C.Member_ID
+    FROM COMMENTS C
+    WHERE C.Comment_Date BETWEEN '2018-12-01' AND '2019-01-31' -- Checking if the date of the comment is within the date range (Only one time since we only have one date)
+);
 
 -- PRINTS TABLES
 SELECT * FROM COUNTRY;
