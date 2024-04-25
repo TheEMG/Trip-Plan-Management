@@ -1,3 +1,4 @@
+-- Active: 1712864545065@@127.0.0.1@3306@erics
 -- Statement just for development phase
 DROP SCHEMA IF EXISTS Erics;
 CREATE SCHEMA Erics;
@@ -327,7 +328,12 @@ INSERT INTO AUTHORIZED_MEMBER VALUES
     ("Alexander","C","Lopez", 12, FALSE, 3, 12, '909 Ivy Street', 'user12', 'password12', 'user12@example.com'),
     ("Charlotte","E","Gonzalez", 13, TRUE, 41, 13, '1010 Jasmine Avenue', 'user13', 'password13', 'user13@example.com'),
     ("Amelia","G","Anderson", 14, FALSE, 6, 14, '1111 Kiwi Drive', 'user14', 'password14', 'user14@example.com'),
-    ("Vicente", "", "Fernandez", 15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com');
+    ("Vicente", "", "Fernandez", 15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com'),
+    ("Ethan", "Q", "Morris", 16, FALSE, 7, 16, '1313 Mango Street', 'user16', 'password16', 'user16@example.com'), -- Eric Added
+    ("Natalie", "M", "Roberts", 17, TRUE, 72, 17, '1414 Orange Avenue', 'user17', 'password17', 'user17@example.com'),
+    ("Lucas", "T", "Evans", 18, FALSE, 8, 18, '1515 Papaya Place', 'user18', 'password18', 'user18@example.com');
+
+
 
 /*
     Buisness owner data (Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info)
@@ -359,10 +365,10 @@ INSERT INTO STATE VALUES
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Île-de-France', 'France'),
-    (9, 'Auvergne-Rhône-Alpes', 'France'),
-    (10, 'Hauts-de-France', 'France'),
-    (11, 'Provence-Alpes-Côte d''Azur', 'France'),
+    (8, 'Alberta', 'France'),
+    (9, 'Île-de-France', 'France'),
+    (10, 'Red wine', 'France'),
+    (11, 'White wine', 'France'),
     (12, 'Grand Est', 'France'),
     (13, 'Occitanie', 'France'),
     (14, 'Nouvelle-Aquitaine', 'France'),
@@ -391,8 +397,8 @@ INSERT INTO CITY VALUES
     (9, 5, 'Miami'),
     (10, 5, 'Tallahassee'),
     (11, 8, 'Paris'),
-    (12, 9, 'Lyon'),
-    (13, 10, 'Lille'),
+    (12, 8, 'Lyon'),
+    (13, 8, 'Lille'),
     (14, 11, 'Marseille'),
     (15, 12, 'Strasbourg'),
     (16, 13, 'Toulouse'),
@@ -462,9 +468,9 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     '404 Birch Boulevard, Le France, Ontario', 4, '7:00 AM', '911-234-5678'),
     (15, 5, 15, 'City Lights Mall', 'Experience the vibrant energy of the city at City Lights Mall, offering a diverse selection of shops and entertainment.', 
     '505 Chestnut Street, Caliente, Sonora', 5, '11:00 AM', '977-901-2345'),
-    (16, 11, 4, 'Eiffel Tower', 'Iconic wrought-iron lattice tower offering city views & visitors can ascend by stairs or elevator.', 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France', 4, '9:00 AM', '+33 892 70 12 39'),
-    (17, 12, 7, 'Basilique Notre-Dame de Fourvière', '19th-century basilica with Byzantine architecture, a large golden statue of the Virgin Mary & city views.', '8 Place de Fourvière, 69005 Lyon, France', 5, '10:00 AM', '+33 4 78 25 86 31'),
-    (18, 13, 11, 'Vieux-Lille', 'Historic district with Flemish architecture, boutiques, cafes, and the Palais des Beaux-Arts de Lille museum.', 'Vieux-Lille, Lille, France', 4, '9:30 AM', '+33 3 20 49 60 06'),
+    (16, 11, 14, 'Eiffel Tower', 'Iconic wrought-iron lattice tower offering city views & visitors can ascend by stairs or elevator.', 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France', 4, '9:00 AM', '+33 892 70 12 39'),
+    (17, 12, 15, 'Basilique Notre-Dame de Fourvière', '19th-century basilica with Byzantine architecture, a large golden statue of the Virgin Mary & city views.', '8 Place de Fourvière, 69005 Lyon, France', 5, '10:00 AM', '+33 4 78 25 86 31'),
+    (18, 13, 14, 'Vieux-Lille', 'Historic district with Flemish architecture, boutiques, cafes, and the Palais des Beaux-Arts de Lille museum.', 'Vieux-Lille, Lille, France', 4, '9:30 AM', '+33 3 20 49 60 06'),
     (19, 14, 14, 'Vieux Port', 'Historic harbor offering boat tours & seafood restaurants, plus landmarks like Fort Saint-Jean & Abbaye Saint-Victor.', 'Quai du Port, 13002 Marseille, France', 4, '10:00 AM', '+33 4 91 39 57 82'),
     (20, 15, 4, 'La Petite France', 'Picturesque medieval quarter with narrow streets, half-timbered houses, canals, and historic buildings.', '67000 Strasbourg, France', 4, '9:00 AM', '+33 3 88 52 28 28'),
     (21, 16, 7, 'Cité de l\'Espace', 'Interactive exhibits & attractions focused on space exploration & astronomy, plus an IMAX theater.', 'Avenue Jean Gonord, 31500 Toulouse, France', 4, '10:00 AM', '+33 5 67 22 23 24'),
@@ -532,9 +538,9 @@ INSERT INTO SHOPPING_MALLS VALUES
 
 /*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
-  (1, 1, 10000.00, '2016-03-23', '2016-04-02', 10, 'Awesome Vacation', "Awesome vacation with the entire family."),
-  (2, 2, 1250.00, '2019-10-02', '2019-10-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
-  (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip', "Insert text here."),
+  (1, 1, 10000.00, '2018-12-02', '2018-12-010', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."), -- changed date for query 8
+  (2, 2, 1250.00, '2019-01-02', '2019-01-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),-- changed date for query 8
+  (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
   (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
   (5, 5, 500.00, '2023-02-15', '2023-02-28', 13, 'Around the US in 13 Days', "Very fast hot air balloon."),
   (6, 6, 45.00, '2024-03-01', '2024-04-05', 35, 'Very Long Trip', "Went across the street."),
@@ -585,6 +591,7 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (16, 32, '2024-05-26', '09:30:00', '2024-05-26', '12:30:00'), -- Fort Boyard in Île-d'Aix
     (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'); -- La Soufrière in Basse-Terre
 
+
 INSERT INTO RESTAURANTS (Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link)
 VALUES
     (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890', 'Cafe', '$$', 'www.cafeofdeath.com'),
@@ -621,9 +628,9 @@ INSERT INTO SIGHTS VALUES
 
 
 INSERT INTO COMMENTS VALUES
-  (1, 1, 1, 5, 3, 2, '2004-06-09', '10:00:00'),
-  (2, 2, 2, 10, 7, 3, '2019-04-20', '02:00:00'),
-  (3, 3, 3, 15, 11, 4, '2020-09-01', '15:15:15'),
+  (1, 1, 1, 5, 3, 2, '2018-12-02', '10:00:00'), -- changed date for query 8
+  (2, 2, 2, 10, 7, 3, '2018-12-15', '02:00:00'),-- changed date for query 8
+  (3, 3, 3, 15, 11, 4, '2019-01-31', '15:15:15'), -- changed date for query 8
   (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
   (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');
   
