@@ -538,7 +538,7 @@ INSERT INTO SHOPPING_MALLS VALUES
 
 /*TRIP_PLAN (Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose)*/
 INSERT INTO TRIP_PLAN VALUES
-  (1, 1, 10000.00, '2018-12-02', '2018-12-010', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."), -- changed date for query 8
+  (1, 1, 10000.00, '2018-12-02', '2018-12-10', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."), -- changed date for query 8
   (2, 2, 1250.00, '2019-01-02', '2019-01-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),-- changed date for query 8
   (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
   (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
