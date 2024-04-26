@@ -23,4 +23,9 @@ GROUP BY AuM.Member_ID;
  * across all these related itineraries (considering 
  * restaurant and attraction cost only). */
  
- 
+-- grab all states of france
+-- grab all trip plans that each member has been a part of
+	-- grab all attractions (city, state, country) that were a part of that plan
+    
+-- worry about the costs per person and day later
+-- think in set notation
