@@ -26,9 +26,10 @@ SET SQL_SAFE_UPDATES = 1;
 
 /* COUNTRY: Country_Name */
 INSERT INTO COUNTRY VALUES
-    ('USA'), 
+    ('Canada'), 
     ('France'), 
-    ('Mexico');
+    ('Mexico'),
+    ('USA');
 
 /* AUTHORIZED_MEMBER: FName, MInit, LName, Member_ID, Is_Preferred, Num_Following, Ranking, Address, User_Name, User_Password, Email */
 INSERT INTO AUTHORIZED_MEMBER VALUES
@@ -72,16 +73,16 @@ INSERT INTO BUSINESS_OWNER VALUES
 /* STATE: State_ID, State_name, Country_Name */
 INSERT INTO STATE VALUES
     (1, 'Texas', 'USA'),
-    (2, 'Ontario', 'France'),
+    (2, 'Ontario', 'Canada'),
     (3, 'Jalisco', 'Mexico'),
     (4, 'Sonora', 'Mexico'),
     (5, 'Florida', 'USA'),
     (6, 'New York', 'USA'),
     (7, 'Guerrero', 'Mexico'),
-    (8, 'Alberta', 'France'),
-    (9, 'Île-de-France', 'France'),
-    (10, 'Red wine', 'France'),
-    (11, 'White wine', 'France'),
+	(8, 'Île-de-France', 'France'),
+    (9, 'Auvergne-Rhône-Alpes', 'France'),
+    (10, 'Hauts-de-France', 'France'),
+    (11, 'Provence-Alpes-Côte d''Azur', 'France'),
     (12, 'Grand Est', 'France'),
     (13, 'Occitanie', 'France'),
     (14, 'Nouvelle-Aquitaine', 'France'),
@@ -110,8 +111,8 @@ INSERT INTO CITY VALUES
     (9, 5, 'Miami'),
     (10, 5, 'Tallahassee'),
     (11, 8, 'Paris'),
-    (12, 8, 'Lyon'),
-    (13, 8, 'Lille'),
+    (12, 9, 'Lyon'),
+    (13, 10, 'Lille'),
     (14, 11, 'Marseille'),
     (15, 12, 'Strasbourg'),
     (16, 13, 'Toulouse'),
@@ -222,13 +223,13 @@ INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
     (14, 'Bus'),
     (15, 'Vehicle');
 
-/* SHOPPING_MALLS: Mall_ID, Attraction_ID, City_ID */
+/* SHOPPING_MALLS: Mall_ID, Attraction_ID, City_ID, Price_range*/
 INSERT INTO SHOPPING_MALLS VALUES
-  (1, 3, 3),
-  (2, 6, 6),
-  (3, 10, 10),
-  (4, 12, 2),
-  (5, 15, 5);
+  (1, 3, 3, 500.00),
+  (2, 6, 6, 700.00),
+  (3, 10, 10, 350.00),
+  (4, 12, 2, 215.00),
+  (5, 15, 5, 99.99);
 
 /* IMAGES: Image_ID, Member_ID, Image_link */
   INSERT INTO IMAGES VALUES
@@ -305,11 +306,21 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
 
 /* RESTAURANTS: Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link */
 INSERT INTO RESTAURANTS VALUES
-    (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890', 'Cafe', '$$', 'www.cafeofdeath.com'),
-    (2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', '456 Park Avenue, Dallas, Texas', 5, '6:00 PM', '234-567-8901', 'Fine Dining', '$$$', 'www.moonlitgrille.com'),
-    (3, 5, 5, 'Lakeside Eats', 'Relax by the lake and savor delicious food at this waterfront restaurant.', '123 Lakeview Drive, Caliente, Jalisco', 4, '11:00 AM', '567-890-1234', 'Waterfront', '$$', 'www.lakesideeats.com'),
-    (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', '$$', 'www.cheddars.com'),
-    (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', '$', 'www.starlightdiner.com');
+    (1, 1, 1, 'Cafe of Death', 'A unique cafe with a spooky theme, serving delicious food and drinks.', '123 Main Street, San Antonio, Texas', 4, '9:00 AM', '123-456-7890', 'Cafe', 100.00, 'www.cafeofdeath.com'),
+    (2, 2, 2, 'Moonlit Grille', 'Enjoy fine dining under the moonlight at this elegant restaurant.', '456 Park Avenue, Dallas, Texas', 5, '6:00 PM', '234-567-8901', 'Fine Dining', 2500.00, 'www.moonlitgrille.com'),
+    (3, 5, 5, 'Lakeside Eats', 'Relax by the lake and savor delicious food at this waterfront restaurant.', '123 Lakeview Drive, Caliente, Jalisco', 4, '11:00 AM', '567-890-1234', 'Waterfront', 50.00, 'www.lakesideeats.com'),
+    (4, 8, 8, 'Cheddars', 'Experience delicious American cuisine in a cozy and inviting atmosphere.', '123 Oak Street, Muy Mal, Sonora', 4, '11:00 AM', '890-123-4567', 'American', 35.00, 'www.cheddars.com'),
+    (5, 9, 9, 'Starlight Diner', 'Step back in time and enjoy classic diner fare at this nostalgic eatery.', '456 Elm Avenue, Miami, Florida', 3, '6:00 AM', '901-234-5678', 'Diner', 15.00, 'www.starlightdiner.com'),
+    (6, 16, 8, 'Le Champs de Mars', 'Charming French restaurant with a view of the Eiffel Tower, offering classic French cuisine and fine wines.', '1 Rue de la Comète, 75007 Paris, France', 4, '11:00 AM', '+33 1 47 05 37 60', 'French', 50.00, 'www.restaurantlechampsdemars.com'),
+    (7, 17, 9, 'Le Basilique Bistro', 'Cozy bistro located near the Basilique Notre-Dame de Fourvière, serving traditional French dishes with a modern twist.', '12 Rue du Bon Pasteur, 69001 Lyon, France', 4, '12:00 PM', '+33 4 78 25 89 99', 'French', 40.00, 'www.lebasiliquebistro.com'),
+    (8, 18, 8, 'Vieux-Lille Brasserie', 'Lively brasserie in the heart of Vieux-Lille, offering a wide selection of Belgian and French beers along with hearty regional cuisine.', '18 Rue de la Monnaie, 59000 Lille, France', 4, '10:30 AM', '+33 3 20 06 06 06', 'French, Belgian', 35.00, 'www.vieuxlillebrasserie.com'),
+    (9, 19, 10, 'Portside Bistro', 'Quaint bistro overlooking the Vieux Port, specializing in fresh seafood dishes and Provencal cuisine.', '2 Quai de Rive Neuve, 13007 Marseille, France', 4, '11:30 AM', '+33 4 91 90 07 78', 'French, Seafood', 60.00, 'www.portsidebistromarseille.com'),
+    (10, 20, 5, 'La Petite France Café', 'Charming café nestled in the heart of La Petite France, serving freshly brewed coffee, homemade pastries, and light French fare.', '10 Rue du Bain aux Plantes, 67000 Strasbourg, France', 4, '8:00 AM', '+33 3 88 36 43 64', 'French, Café', 20.00, 'www.lapetitefrancecafe.com'),
+    (11, 21, 8, 'Galactic Café', 'Space-themed café located within the Cité de l\'Espace, offering a unique dining experience with cosmic-inspired dishes and stellar views.', 'Space Street, 31500 Toulouse, France', 4, '10:30 AM', '+33 5 67 89 10 11', 'French, Café', 25.00, 'www.galacticcafe.com'),
+    (12, 22, 12, 'Le Vin Rouge', 'Cozy wine bar situated in La Cité du Vin, offering an extensive selection of French wines paired with artisanal cheese and charcuterie.', '8 Rue de la Négresse, 33300 Bordeaux, France', 4, '5:00 PM', '+33 5 56 32 55 88', 'French, Wine Bar', 40.00, 'www.levinrougebordeaux.com'),
+    (13, 23, 8, 'Thabor Garden Café', 'Relaxing café located within Parc du Thabor, serving freshly brewed coffee, homemade pastries, and light snacks amidst scenic greenery.', 'Avenue des Français Libres, 35000 Rennes, France', 4, '9:00 AM', '+33 2 99 59 60 61', 'French, Café', 15.00, 'www.thaborgardencafe.com'),
+    (14, 24, 5, 'Mechanical Bistro', 'Quirky bistro inspired by the Machines of the Isle of Nantes, offering inventive dishes and craft cocktails in a steampunk ambiance.', '4 Rue des Machines, 44000 Nantes, France', 4, '12:00 PM', '+33 2 40 20 30 40', 'French, Fusion', 45.00, 'www.mechanicalbistronantes.com'),
+    (15, 25, 8, 'Artisanal Café', 'Charming café located near Musée des Beaux-Arts d\'Ajaccio, offering artisanal coffee, freshly baked pastries, and light Mediterranean-inspired dishes.', '15 Rue Fesch, 20000 Ajaccio, France', 4, '8:30 AM', '+33 4 95 21 75 89', 'French, Café', 20.00, 'www.artisanalcafeajaccio.com');
 
 /* SIGHTS: Sight_ID, Attraction_ID, City_ID, Ticket_Price */
 INSERT INTO SIGHTS VALUES
@@ -354,7 +365,7 @@ INSERT INTO USER_ACTION VALUES
     (5, 5, TRUE, TRUE, "USER REPLY");
 
 /* ASSOCIATED_MEMBER: Plan_ID, Member_ID */
-INSERT INTO ASSOCIATED_MEMBER VALUES
+INSERT INTO ASSOCIATED_MEMBER (Plan_ID, Member_ID) VALUES
   (1, 1),
   (2, 2),
   (3, 3),
@@ -369,7 +380,8 @@ INSERT INTO ASSOCIATED_MEMBER VALUES
   (12, 12),
   (13, 13),
   (14, 14),
-  (15, 15);
+  (15, 15),
+  (16, 15);
 
 /* RATE: Plan_ID, Member_ID, Rating */
 INSERT INTO RATE VALUES
@@ -406,24 +418,3 @@ INSERT INTO EDIT VALUES
     (13, 13, '2023-04-02'),
     (14, 14, '2023-11-25'),
     (15, 15, '2023-08-01');
-
- -- Print Results of Insertions
-SELECT * FROM COUNTRY;
-SELECT * FROM AUTHORIZED_MEMBER;
-SELECT * FROM BUSINESS_OWNER;
-SELECT * FROM STATE;
-SELECT * FROM CITY;
-SELECT * FROM DESTINATION;
-SELECT * FROM TRAVEL_ATTRACTIONS;
-SELECT * FROM TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL;
-SELECT * FROM SHOPPING_MALLS;
-SELECT * FROM IMAGES;
-SELECT * FROM TRIP_PLAN;
-SELECT * FROM PLANNED_ATTRACTIONS;
-SELECT * FROM RESTAURANTS;
-SELECT * FROM SIGHTS;
-SELECT * FROM COMMENTS;
-SELECT * FROM USER_ACTION;
-SELECT * FROM ASSOCIATED_MEMBER;
-SELECT * FROM RATE;
-SELECT * FROM EDIT;

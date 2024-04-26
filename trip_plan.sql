@@ -148,8 +148,8 @@ CREATE TABLE RESTAURANTS (
     Opening_hours VARCHAR(10),
     Phone_number VARCHAR(25),
     Restaurant_Type VARCHAR(30),
-    Price_range VARCHAR(10),
-    Web_link VARCHAR(30),
+    Price_range DECIMAL(8,2),
+    Web_link VARCHAR(50),
     PRIMARY KEY (Restaurant_ID)
 );
 
@@ -165,6 +165,7 @@ CREATE TABLE SHOPPING_MALLS(
    Mall_ID INT,
    Attraction_ID INT, -- FK
    City_ID INT, -- FK
+   Price_range DECIMAL(8,2),
    PRIMARY KEY(Mall_ID)
 );
 
