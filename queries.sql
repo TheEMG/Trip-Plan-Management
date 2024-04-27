@@ -117,6 +117,7 @@ INNER JOIN City C ON TA.City_ID = C.City_ID
 INNER JOIN State S ON C.State_ID = S.State_ID
 INNER JOIN Country Co ON S.Country_Name = Co.Country_Name
 WHERE Co.Country_Name NOT LIKE "USA"
+AND AuM.Is_Preferred = TRUE
 GROUP BY AuM.Member_ID;
 
  -- Emilio Zuniga's Queries:
