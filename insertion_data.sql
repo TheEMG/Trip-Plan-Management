@@ -315,7 +315,9 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (16, 30, '2024-05-24', '09:00:00', '2024-05-24', '12:00:00'), -- Plage de l'Hermitage in Réunion
     (16, 31, '2024-05-25', '10:00:00', '2024-05-25', '13:00:00'), -- Musée Départemental de Mayotte in Mamoudzou
     (16, 32, '2024-05-26', '09:30:00', '2024-05-26', '12:30:00'), -- Fort Boyard in Île-d'Aix
-    (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'); -- La Soufrière in Basse-Terre
+    (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'), -- La Soufrière in Basse-Terre
+    (16, 1, '2024-05-29', '08:00:00', '2024-05-31', '12:00:00'), -- Visit to Cafe of Death
+    (3, 1, '2024-04-12', '09:30:00', '2024-04-13', '10:00:00'); -- Visit to Cafe of Death
 
 /* RESTAURANTS: Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link */
 INSERT INTO RESTAURANTS VALUES
