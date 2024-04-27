@@ -68,7 +68,10 @@ INSERT INTO BUSINESS_OWNER VALUES
     (12, 'Coastal Breeze Hospitality Group', 'Shopping Mall', '934-567-8901', 'Carlos Esteban'),
     (13, 'FusionFlare Entertainment Inc.', 'Sight', '945-678-9012', 'Fiona Grace'),
     (14, 'LuxeLane Shopping Enterprises','Sight','911-234-5678','Farensi Luclata'),
-    (15, 'NovaVoyage Travel Corporation', 'Shopping Mall', '977-901-2345', 'Emily Clark');
+    (15, 'NovaVoyage Travel Corporation', 'Shopping Mall', '977-901-2345', 'Emily Clark'),
+    (16, 'Jimmy Johns', 'Restaurant', '246-935-7890', 'Eric Gutierrez'),
+    (17, 'Pizza Hut', 'Restaurant', '246-850-7890', 'Eric Gutierrez'),
+    (18, 'McDonalds', 'Restaurant', '246-936-4455', 'Eric Oliver');
 
 /* STATE: State_ID, State_name, Country_Name */
 INSERT INTO STATE VALUES
@@ -197,7 +200,13 @@ INSERT INTO TRAVEL_ATTRACTIONS VALUES
     (30, 25, 11, 'Plage de l\'Hermitage', 'Popular beach with calm waters, white sand & palm trees, plus nearby cafes & shops.', 'Plage de l''Hermitage, Réunion', 4, '7:00 AM', '+262 262 21 05 00'),
     (31, 26, 14, 'Musée Départemental de Mayotte', 'Museum featuring exhibits on the history, culture, and natural environment of Mayotte, including artifacts and displays.', 'Maison Cœffier, 5 Rue du Maréchal Leclerc, Mamoudzou, Mayotte', 4, '9:00 AM', '+262 269 61 19 72'),
     (32, 27, 4, 'Fort Boyard', 'Historic fortification located between the Île-d''Aix and the Île d''Oléron in the Pertuis d''Antioche straits.', '1 Fort Boyard, 17300 Île-d''Aix, France', 4, '10:00 AM', '+33 5 46 84 08 00'),
-    (33, 28, 7, 'La Soufrière', 'Active stratovolcano located on the island of Basse-Terre in Guadeloupe. Popular hiking destination.', 'La Soufrière, Basse-Terre, Guadeloupe', 4, '6:00 AM', '+590 590 93 86 46');
+    (33, 28, 7, 'La Soufrière', 'Active stratovolcano located on the island of Basse-Terre in Guadeloupe. Popular hiking destination.', 'La Soufrière, Basse-Terre, Guadeloupe', 4, '6:00 AM', '+590 590 93 86 46'),
+    (34, 1, 16, 'Jimmy Johns', 'A sandwhich shop with New Jersey Flair',  
+    '246 Wall Street, San Antonio, Texas', 3, '10:00 AM', '246-935-7890'),
+    (35, 1, 17, 'Pizza Hut', 'A Pizza buffet and store', 
+    '675 Broadway street, San Antonio, Texas', 2, '11:00 AM', '246-850-7890'),
+    (36, 1, 18, 'McDonalds', 'A fastfood burger restaurant, with greath deals', 
+    '325 London street, San Antonio, Texas', 2, '6:00 AM', '246-936-4455');
 
 /* TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL: Attraction_ID, Ways_of_travel */
 INSERT INTO TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL VALUES
@@ -247,7 +256,11 @@ INSERT INTO SHOPPING_MALLS VALUES
   (12, 12, 'Imagelink0012' ),
   (13, 13, 'Imagelink0013' ),
   (14, 14, 'Imagelink0014' ),
-  (15, 15, 'Imagelink0015' );
+  (15, 15, 'Imagelink0015' ),
+  (16, 15, 'Imagelink0016'),
+  (17, 7, 'Imagelink0017'),
+  (18, 2, 'Imagelink0018'),
+  (19, 2, 'Imagelink0019');
 
 /* TRIP_PLAN: Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose */
 INSERT INTO TRIP_PLAN VALUES
@@ -320,7 +333,10 @@ INSERT INTO RESTAURANTS VALUES
     (12, 22, 12, 'Le Vin Rouge', 'Cozy wine bar situated in La Cité du Vin, offering an extensive selection of French wines paired with artisanal cheese and charcuterie.', '8 Rue de la Négresse, 33300 Bordeaux, France', 4, '5:00 PM', '+33 5 56 32 55 88', 'French, Wine Bar', 40.00, 'www.levinrougebordeaux.com'),
     (13, 23, 8, 'Thabor Garden Café', 'Relaxing café located within Parc du Thabor, serving freshly brewed coffee, homemade pastries, and light snacks amidst scenic greenery.', 'Avenue des Français Libres, 35000 Rennes, France', 4, '9:00 AM', '+33 2 99 59 60 61', 'French, Café', 15.00, 'www.thaborgardencafe.com'),
     (14, 24, 5, 'Mechanical Bistro', 'Quirky bistro inspired by the Machines of the Isle of Nantes, offering inventive dishes and craft cocktails in a steampunk ambiance.', '4 Rue des Machines, 44000 Nantes, France', 4, '12:00 PM', '+33 2 40 20 30 40', 'French, Fusion', 45.00, 'www.mechanicalbistronantes.com'),
-    (15, 25, 8, 'Artisanal Café', 'Charming café located near Musée des Beaux-Arts d\'Ajaccio, offering artisanal coffee, freshly baked pastries, and light Mediterranean-inspired dishes.', '15 Rue Fesch, 20000 Ajaccio, France', 4, '8:30 AM', '+33 4 95 21 75 89', 'French, Café', 20.00, 'www.artisanalcafeajaccio.com');
+    (15, 25, 8, 'Artisanal Café', 'Charming café located near Musée des Beaux-Arts d\'Ajaccio, offering artisanal coffee, freshly baked pastries, and light Mediterranean-inspired dishes.', '15 Rue Fesch, 20000 Ajaccio, France', 4, '8:30 AM', '+33 4 95 21 75 89', 'French, Café', 20.00, 'www.artisanalcafeajaccio.com'),
+    (16, 16, 1, 'Jimmy Johns', 'A sandwhich shop with New Jersey Flair', '246 Wall Street, San Antonio, Texas', 3, '10:00 AM', '246-935-7890', 'Sandwhich Shop', '$12.00 - $18.00', 'www.JimmyJohns.com'),
+    (17, 17, 1, 'Pizza Hut', 'A Pizza buffet and restaurant', '675 Broadway street, San Antonio, Texas', 4, '11:00 AM', '246-850-7890','Pizza Store', '$15.00 - $30.00', 'www.PizzaHut.com'),
+    (18, 18, 1, 'Mcdonalds', 'A fastfood burger restaurant, with greath deals', '325 London street, San Antonio, Texas', 2, '6:00 AM', '246-936-4455','Fastfood', '$1.00 - $15.00', 'www.McDonalds.com');
 
 /* SIGHTS: Sight_ID, Attraction_ID, City_ID, Ticket_Price */
 INSERT INTO SIGHTS VALUES
