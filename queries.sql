@@ -35,12 +35,19 @@ who owns the most expensive restaurant and the owner who owns the most assets in
 
 SELECT BUSINESS_OWNER.Contact_Info
 FROM BUSINESS_OWNER -- Gets BUSINESS_OWNER
-JOIN 
+RIGHT JOIN 
 		TRAVEL_ATTRACTIONS ON BUSINESS_OWNER.Owner_ID = TRAVEL_ATTRACTIONS.Owner_ID -- Joins TRAVEL_ATTRACTIONS and BUSINESS_OWNER
-JOIN
+LEFT JOIN
 		RESTAURANTS ON TRAVEL_ATTRACTIONS.Attraction_ID = RESTAURANTS.Attraction_ID -- Joins RESTAURANTS and TRAVEL_ATTRACTIONS
 WHERE RESTAURANTS.Price_range = (SELECT MAX(RESTAURANTS.Price_range) -- Gets the BUSINESS_OWNER with the most expensive RESTAURANT
-								 FROM RESTAURANTS); -- NEED TO FINISH FROM HERE
+								 FROM RESTAURANTS)
+		OR TRAVEL_ATTRACTIONS.Owner_ID = (SELECT MAX(ASSETS.count_owners)
+										  FROM (SELECT Owner_ID, COUNT(Owner_ID) AS count_owners
+												FROM TRAVEL_ATTRACTIONS
+                                                GROUP BY Owner_ID
+                                                ORDER BY count_owners DESC
+                                                ) AS ASSETS)
+LIMIT 2;
 
 -- Query7: Retrieve the names of the 5 most desirable France cities to visit
 SELECT 
