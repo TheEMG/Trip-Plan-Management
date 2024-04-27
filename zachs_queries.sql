@@ -26,7 +26,7 @@ WHERE S1.Country_Name != 'USA' AND EXISTS (SELECT * -- Makes sure S1 is not in t
 					CITY C2 ON TA2.City_ID = C2.City_ID  -- Joins TRAVEL_ATTRACTIONS and CITY
 			  JOIN 
 					STATE S2 ON C2.State_ID = S2.State_ID  -- Joins CITY and STATE
-							  WHERE P1.Plan_ID = P2.Plan_ID AND S2.Country_Name = 'USA' -- Makes sure S2 is in the USA
+							  WHERE TP1.Plan_ID = TP2.Plan_ID AND S2.Country_Name = 'USA' -- Makes sure S2 is in the USA
 							  AND (P2.Arrival_Date BETWEEN DATE_ADD(P1.Arrival_Date, INTERVAL -15 DAY)
 												   AND DATE_ADD(P1.Arrival_Date, INTERVAL 15 DAY) 
 							  OR P2.Departure_Date BETWEEN DATE_ADD(P1.Departure_Date, INTERVAL -15 DAY)
