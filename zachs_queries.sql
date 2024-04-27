@@ -31,3 +31,15 @@ WHERE S1.Country_Name != 'USA' AND EXISTS (SELECT * -- Makes sure S1 is not in t
 												   AND DATE_ADD(P1.Arrival_Date, INTERVAL 15 DAY) 
 							  OR P2.Departure_Date BETWEEN DATE_ADD(P1.Departure_Date, INTERVAL -15 DAY)
 												   AND DATE_ADD(P1.Departure_Date, INTERVAL 15 DAY)));
+                                                   
+/* Query 6: Retrieve the contact information of the business owner 
+who owns the most expensive restaurant and the owner who owns the most assets in the system.*/
+
+SELECT BUSINESS_OWNER.Contact_Info
+FROM BUSINESS_OWNER -- Gets BUSINESS_OWNER
+JOIN 
+		TRAVEL_ATTRACTIONS ON BUSINESS_OWNER.Owner_ID = TRAVEL_ATTRACTIONS.Owner_ID -- Joins TRAVEL_ATTRACTIONS and BUSINESS_OWNER
+JOIN
+		RESTAURANTS ON TRAVEL_ATTRACTIONS.Attraction_ID = RESTAURANTS.Attraction_ID -- Joins RESTAURANTS and TRAVEL_ATTRACTIONS
+WHERE RESTAURANTS.Price_range = (SELECT MAX(RESTAURANTS.Price_range) -- Gets the BUSINESS_OWNER with the most expensive RESTAURANT
+								 FROM RESTAURANTS); -- NEED TO FINISH FROM HERE
