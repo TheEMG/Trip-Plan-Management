@@ -1,6 +1,13 @@
 USE Erics;
+SET SQL_SAFE_UPDATES = 0;
+DROP VIEW IF EXISTS Restaurants_San_Antonio_Texas_USA;
+DROP VIEW IF EXISTS View_CountriesAndMembersVisited;
+DROP VIEW IF EXISTS Iteneraries_To_France;
+DROP VIEW IF EXISTS COUNTRIES_VISITED_WITH_US;
+SET SQL_SAFE_UPDATES = 1;
 
--- create view 1
+
+-- View 1
 -- Retrieve all restaurants in San Antonio, Texas, USA
 CREATE VIEW Restaurants_San_Antonio_Texas_USA AS
 SELECT 
@@ -22,9 +29,6 @@ WHERE
     CTR.Country_Name = 'USA' 
     AND S.State_name = 'Texas'
     AND C.City_Name = 'San Antonio';
-    
-    SELECT *
-FROM Restaurants_San_Antonio_Texas_USA;
 
 
 
@@ -52,6 +56,19 @@ GROUP BY
     COUNTRY.Country_Name, AUTHORIZED_MEMBER.FName, AUTHORIZED_MEMBER.LName
 ORDER BY 
     COUNTRY.Country_Name, AUTHORIZED_MEMBER.LName, AUTHORIZED_MEMBER.FName;
+
+
+
+-- View 3: Retrieve itineraries to France.
+CREATE VIEW Iteneraries_To_France AS
+	SELECT TP.Plan_ID, TP.Trip_Name FROM TRIP_PLAN TP
+	INNER JOIN PLANNED_ATTRACTIONS PA ON TP.Plan_ID = PA.Plan_ID
+	INNER JOIN TRAVEL_ATTRACTIONS TA ON PA.Attraction_ID = TA.Attraction_ID
+	INNER JOIN CITY C ON TA.City_ID = C.City_ID
+	INNER JOIN STATE S ON C.State_ID = S.State_ID
+	WHERE S.Country_Name LIKE "France"
+	GROUP BY TP.Plan_ID, TP.Trip_Name;
+
 
 
 -- View 4: Retrieve the country(s) visited by whom also visits/visited the US on the same trip (within 15 days).
