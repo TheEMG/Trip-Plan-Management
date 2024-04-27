@@ -24,7 +24,7 @@ LIMIT 3;
 -- Query 2
 -- Retrieve the username, status (regular or preferred), and ranking of the member who has uploaded the most pictures.
 SELECT 
-    U.Member_ID,
+    U.User_Name,
     U.Is_Preferred,
     U.Ranking
 FROM 
