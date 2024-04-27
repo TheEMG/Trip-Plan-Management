@@ -50,7 +50,8 @@ INSERT INTO AUTHORIZED_MEMBER VALUES
     ("Vicente", "", "Fernandez", 15, TRUE, 71, 15, '1212 Lemon Lane', 'user15', 'password15', 'user15@example.com'),
     ("Ethan", "Q", "Morris", 16, FALSE, 7, 16, '1313 Mango Street', 'user16', 'password16', 'user16@example.com'),
     ("Natalie", "M", "Roberts", 17, TRUE, 72, 17, '1414 Orange Avenue', 'user17', 'password17', 'user17@example.com'),
-    ("Lucas", "T", "Evans", 18, FALSE, 8, 18, '1515 Papaya Place', 'user18', 'password18', 'user18@example.com');
+    ("Lucas", "T", "Evans", 18, FALSE, 8, 18, '1515 Papaya Place', 'user18', 'password18', 'user18@example.com'),
+    ("Lucas", "T", "Evans", 19, TRUE, 8, 19, '1515 Papaya Place', 'user19', 'password19', 'user119@example.com');
 
 /* BUSINESS_OWNER: Owner_ID, Business_Name, Business_Type, Phone_Number, Contact_Info */
 INSERT INTO BUSINESS_OWNER VALUES
@@ -279,8 +280,10 @@ INSERT INTO TRIP_PLAN VALUES
   (13, 13, 1500.00, '2001-01-01', '2001-01-02', 1, 'Day Trip', "Went on a trip for the day."),
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
   (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
-  (16, 15, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.');
-
+  (16, 16, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.'),
+  (17, 17, 800.00, '2009-01-15', '2009-02-15', 31, 'Winter Break', "Taking a break this winter"), -- Eric added
+  (18, 18, 900.00, '2009-04-10', '2009-05-11', 31, 'Spring Getaway', "Spring getaway to rejuvenate"),
+  (19, 19, 850.00, '2009-07-20', '2009-08-20', 31, 'Summer Escape', "Escape the city for summer");
   /* PLANNED_ATTRACTIONS: Plan_ID, Attraction_ID, Arrival_Date, Arrival_Time, Departure_Date, Departure_Time */
 INSERT INTO PLANNED_ATTRACTIONS VALUES
     (1, 1, '2024-04-15', '09:00', '2024-04-15', '10:30'), -- Visit to Cafe of Death
@@ -308,6 +311,7 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (16, 23, '2024-05-17', '09:00:00', '2024-05-17', '12:00:00'), -- Parc du Thabor in Rennes
     (16, 24, '2024-05-18', '10:00:00', '2024-05-18', '13:00:00'), -- Machines of the Isle of Nantes in Nantes
     (16, 25, '2024-05-19', '09:00:00', '2024-05-19', '12:00:00'), -- Musée des Beaux-Arts d'Ajaccio in Ajaccio
+    (16, 25, '2024-05-19', '09:00:00', '2024-05-19', '12:00:00'), -- Musée des Beaux-Arts d'Ajaccio in Ajaccio
     (16, 26, '2024-05-20', '10:00:00', '2024-05-20', '13:00:00'), -- Fort Cépérou in Cayenne
     (16, 27, '2024-05-21', '09:30:00', '2024-05-21', '12:30:00'), -- Fort Boyard in Île-d'Aix
     (16, 28, '2024-05-22', '09:00:00', '2024-05-22', '12:00:00'), -- La Soufrière in Basse-Terre
@@ -317,7 +321,12 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (16, 32, '2024-05-26', '09:30:00', '2024-05-26', '12:30:00'), -- Fort Boyard in Île-d'Aix
     (16, 33, '2024-05-27', '09:00:00', '2024-05-27', '12:00:00'), -- La Soufrière in Basse-Terre
     (16, 1, '2024-05-29', '08:00:00', '2024-05-31', '12:00:00'), -- Visit to Cafe of Death
-    (3, 1, '2024-04-12', '09:30:00', '2024-04-13', '10:00:00'); -- Visit to Cafe of Death
+    (3, 1, '2024-04-12', '09:30:00', '2024-04-13', '10:00:00'), -- Visit to Cafe of Death
+    (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
+    (16, 15, '2024-04-29', '10:00', '2024-04-29', '14:00'), -- Eric added
+    (17, 17, '2024-04-30', '09:00', '2024-04-30', '13:00'),
+    (12, 18, '2024-05-01', '12:00', '2024-05-01', '16:00'),
+    (12, 18, '2024-05-01', '12:00', '2024-05-01', '16:00');
 
 /* RESTAURANTS: Restaurant_ID, Attraction_ID, City_ID, Restaurant_name, Restaurant_description, Restaurant_address, Rating, Opening_hours, Phone_number, Restaurant_Type, Price_range, Web_link */
 INSERT INTO RESTAURANTS VALUES
