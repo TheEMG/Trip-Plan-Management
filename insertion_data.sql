@@ -334,9 +334,9 @@ INSERT INTO RESTAURANTS VALUES
     (13, 23, 8, 'Thabor Garden Café', 'Relaxing café located within Parc du Thabor, serving freshly brewed coffee, homemade pastries, and light snacks amidst scenic greenery.', 'Avenue des Français Libres, 35000 Rennes, France', 4, '9:00 AM', '+33 2 99 59 60 61', 'French, Café', 15.00, 'www.thaborgardencafe.com'),
     (14, 24, 5, 'Mechanical Bistro', 'Quirky bistro inspired by the Machines of the Isle of Nantes, offering inventive dishes and craft cocktails in a steampunk ambiance.', '4 Rue des Machines, 44000 Nantes, France', 4, '12:00 PM', '+33 2 40 20 30 40', 'French, Fusion', 45.00, 'www.mechanicalbistronantes.com'),
     (15, 25, 8, 'Artisanal Café', 'Charming café located near Musée des Beaux-Arts d\'Ajaccio, offering artisanal coffee, freshly baked pastries, and light Mediterranean-inspired dishes.', '15 Rue Fesch, 20000 Ajaccio, France', 4, '8:30 AM', '+33 4 95 21 75 89', 'French, Café', 20.00, 'www.artisanalcafeajaccio.com'),
-    (16, 16, 1, 'Jimmy Johns', 'A sandwhich shop with New Jersey Flair', '246 Wall Street, San Antonio, Texas', 3, '10:00 AM', '246-935-7890', 'Sandwhich Shop', '$12.00 - $18.00', 'www.JimmyJohns.com'),
-    (17, 17, 1, 'Pizza Hut', 'A Pizza buffet and restaurant', '675 Broadway street, San Antonio, Texas', 4, '11:00 AM', '246-850-7890','Pizza Store', '$15.00 - $30.00', 'www.PizzaHut.com'),
-    (18, 18, 1, 'Mcdonalds', 'A fastfood burger restaurant, with greath deals', '325 London street, San Antonio, Texas', 2, '6:00 AM', '246-936-4455','Fastfood', '$1.00 - $15.00', 'www.McDonalds.com');
+    (16, 16, 1, 'Jimmy Johns', 'A sandwhich shop with New Jersey Flair', '246 Wall Street, San Antonio, Texas', 3, '10:00 AM', '246-935-7890', 'Sandwhich Shop', 18.00, 'www.JimmyJohns.com'),
+    (17, 17, 1, 'Pizza Hut', 'A Pizza buffet and restaurant', '675 Broadway street, San Antonio, Texas', 4, '11:00 AM', '246-850-7890','Pizza Store', 30.00, 'www.PizzaHut.com'),
+    (18, 18, 1, 'Mcdonalds', 'A fastfood burger restaurant, with greath deals', '325 London street, San Antonio, Texas', 2, '6:00 AM', '246-936-4455','Fastfood', 15.00, 'www.McDonalds.com');
 
 /* SIGHTS: Sight_ID, Attraction_ID, City_ID, Ticket_Price */
 INSERT INTO SIGHTS VALUES
