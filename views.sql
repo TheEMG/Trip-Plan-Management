@@ -1,3 +1,5 @@
+USE Erics;
+
 CREATE VIEW View_CountriesAndMembersVisited AS
 SELECT 
     COUNTRY.Country_Name,
