@@ -144,3 +144,53 @@ FROM(
 INNER JOIN AUTHORIZED_MEMBER AuM ON subquery.Member_ID = AuM.Member_ID
 GROUP BY AuM.FName, AuM.LName;
 
+
+--Nick's Queries
+/*Query 3
+For each country in the system, retrieve 
+the username, address and the number of followers of 
+the members who live in this country and have the most followers.
+*/
+SELECT 
+    D.Country_Name, A.User_Name, A.Address, A.Num_Following
+FROM 
+    AUTHORIZED_MEMBER A
+JOIN 
+    DESTINATION D ON A.Member_ID = D.Member_ID
+JOIN 
+    (
+        SELECT 
+            D.Country_Name, 
+            MAX(A.Num_Following) AS Max_Followers
+        FROM 
+            DESTINATION D
+        JOIN 
+            AUTHORIZED_MEMBER A ON D.Member_ID = A.Member_ID
+        GROUP BY 
+            D.Country_Name
+    ) AS MaxFollowersPerCountry ON D.Country_Name = MaxFollowersPerCountry.Country_Name
+                                  AND A.Num_Following = MaxFollowersPerCountry.Max_Followers;
+
+
+/*Query 10 For each country, retrieve 
+the total number of original comments, 
+the total number of related itineraries, 
+and the total number of members from this 
+country, and the total number of members who have visited.
+*/
+SELECT 
+    D.Country_Name,
+    COUNT(DISTINCT C.Comment_ID) AS Total_Original_Comments,
+    COUNT(DISTINCT T.Plan_ID) AS Total_Itineraries,
+    COUNT(DISTINCT D.Member_ID) AS Total_Members,
+    COUNT(DISTINCT A.Member_ID) AS Total_Members_Visited
+FROM 
+    DESTINATION D
+LEFT JOIN 
+    COMMENTS C ON D.Destination_ID = C.Destination_ID
+LEFT JOIN 
+    TRIP_PLAN T ON D.Member_ID = T.Member_ID
+LEFT JOIN 
+    AUTHORIZED_MEMBER A ON D.Member_ID = A.Member_ID
+GROUP BY 
+    D.Country_Name;
