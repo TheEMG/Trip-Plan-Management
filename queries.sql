@@ -194,3 +194,24 @@ LEFT JOIN
     AUTHORIZED_MEMBER A ON D.Member_ID = A.Member_ID
 GROUP BY 
     D.Country_Name;
+
+--JM Query 
+--Retrieve the average rating of attractions in each country.
+SELECT co.Country_Name, AVG(ta.Rating) AS Average_Rating
+FROM TRAVEL_ATTRACTIONS ta
+JOIN CITY c ON ta.City_ID = c.City_ID
+JOIN STATE s ON c.State_ID = s.State_ID
+JOIN COUNTRY co ON s.Country_Name = co.Country_Name
+GROUP BY co.Country_Name;
+
+
+-- Retrieve the number of restaurants in each price range category from low to med, and high 
+SELECT CASE
+         WHEN r.Price_range < 50 THEN 'Low'
+         WHEN r.Price_range BETWEEN 50 AND 100 THEN 'Medium'
+         ELSE 'High'
+       END AS Price_Category,
+       COUNT(r.Restaurant_ID) AS Num_Restaurants
+FROM RESTAURANTS r
+GROUP BY Price_Category;
+
