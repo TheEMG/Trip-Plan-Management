@@ -145,7 +145,7 @@ INNER JOIN AUTHORIZED_MEMBER AuM ON subquery.Member_ID = AuM.Member_ID
 GROUP BY AuM.FName, AuM.LName;
 
 
---Nick's Queries
+-- Nick's Queries
 /*Query 3
 For each country in the system, retrieve 
 the username, address and the number of followers of 
@@ -171,13 +171,12 @@ JOIN
     ) AS MaxFollowersPerCountry ON D.Country_Name = MaxFollowersPerCountry.Country_Name
                                   AND A.Num_Following = MaxFollowersPerCountry.Max_Followers;
 
-
-/*Query 10 For each country, retrieve 
+-- Nick's Queries
+/* Query 10 For each country, retrieve 
 the total number of original comments, 
 the total number of related itineraries, 
 and the total number of members from this 
-country, and the total number of members who have visited.
-*/
+country, and the total number of members who have visited. */
 SELECT 
     D.Country_Name,
     COUNT(DISTINCT C.Comment_ID) AS Total_Original_Comments,
@@ -195,8 +194,8 @@ LEFT JOIN
 GROUP BY 
     D.Country_Name;
 
---JM Query 
---Retrieve the average rating of attractions in each country.
+-- JM Query 
+-- Retrieve the average rating of attractions in each country.
 SELECT co.Country_Name, AVG(ta.Rating) AS Average_Rating
 FROM TRAVEL_ATTRACTIONS ta
 JOIN CITY c ON ta.City_ID = c.City_ID
@@ -204,7 +203,7 @@ JOIN STATE s ON c.State_ID = s.State_ID
 JOIN COUNTRY co ON s.Country_Name = co.Country_Name
 GROUP BY co.Country_Name;
 
-
+-- JM Query 
 -- Retrieve the number of restaurants in each price range category from low to med, and high 
 SELECT CASE
          WHEN r.Price_range < 50 THEN 'Low'
