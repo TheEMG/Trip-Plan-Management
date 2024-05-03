@@ -20,7 +20,7 @@ CREATE TABLE AUTHORIZED_MEMBER(
 
 CREATE TABLE TRIP_PLAN(
 	Plan_ID INT,
-    Member_ID INT, -- FK --> PK of AUTHORIZED_MEMBER
+    Member_ID INT,
     Potential_Cost DECIMAL(10,2),
     Start_Date DATE,
     End_Date DATE,
@@ -33,20 +33,20 @@ CREATE TABLE TRIP_PLAN(
 
 CREATE TABLE IMAGES(
 	Image_ID INT,
-	Member_ID INT, -- FK --> PK of AUTHORIZED_MEMBER
+	Member_ID INT,
 	Image_link VARCHAR(100),
     PRIMARY KEY (Image_ID)
 );
 
 CREATE TABLE RATE(
-	Plan_ID INT, -- FK --> PK of TRIP_PLAN
-	Member_ID INT, -- FK --> PK of AUTHORIZED_MEMBER
+	Plan_ID INT,
+	Member_ID INT,
 	Rating INT
 );
 
 CREATE TABLE USER_ACTION(
-	Member_ID INT, -- FK --> PK of AUTHORIZED_MEMBER
-	Comment_ID INT, -- FK --> PK of COMMENTS
+	Member_ID INT,
+	Comment_ID INT,
 	User_Likes BOOLEAN,
 	User_Dislikes BOOLEAN,
 	User_Reply TEXT,
@@ -55,19 +55,19 @@ CREATE TABLE USER_ACTION(
 );
 
 CREATE TABLE EDIT(
-	Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
-	Destination_ID INT, -- Foreign Key referring to PK of DESTINATION, add constraint later
+	Member_ID INT,
+	Destination_ID INT,
 	Date_Modified DATE
 );
 
 CREATE TABLE ASSOCIATED_MEMBER(
-	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
-	Member_ID INT -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+	Plan_ID INT,
+	Member_ID INT
 );
 
 CREATE TABLE PLANNED_ATTRACTIONS(
-	Plan_ID INT, -- Foreign Key referring to PK of TRIP_PLAN, add constraint later
-	Attraction_ID INT, -- Foreign Key referring to PK TRAVEL_ATTRACTIONS, add constraint later
+	Plan_ID INT,
+	Attraction_ID INT,
 	Arrival_Date DATE,
 	Arrival_Time TIME,
 	Departure_Date DATE,
@@ -89,8 +89,8 @@ CREATE TABLE COMMENTS(
 CREATE TABLE BUSINESS_OWNER(
     Owner_ID INT,
     Business_Name VARCHAR(50),
-    Business_Type VARCHAR(30), -- CHANGED type attribute to business type for clarity
-    Phone_Number  VARCHAR(20), -- Phone number often have special characters and numbers such as 1+903-xxx-xxx
+    Business_Type VARCHAR(30),
+    Phone_Number  VARCHAR(20),
     Contact_Info VARCHAR(30),
     PRIMARY KEY (Owner_ID)
 );
@@ -99,48 +99,48 @@ CREATE TABLE DESTINATION(
     Destination_ID INT,
     Destination_Description TEXT,
     Country_Name VARCHAR(20),
-    Member_ID INT, -- Foreign Key referring to PK of AUTHORIZED_MEMBER, add constraint later
+    Member_ID INT,
     PRIMARY KEY (Destination_ID)
 );
 
 CREATE TABLE STATE(
     State_ID INT,
     State_name VARCHAR(30),
-    Country_Name VARCHAR(25), -- Foreign Key referring to PK of COUNTRY, add constraint later
+    Country_Name VARCHAR(25),
     
     PRIMARY KEY (State_ID)
 );
 
 CREATE TABLE CITY(
     City_ID INT,
-    State_ID INT, -- Foreign Key referring to PK of STATE, add constraint later
+    State_ID INT,
     City_Name VARCHAR(25),
     PRIMARY KEY (City_ID)
 );
 
 CREATE TABLE TRAVEL_ATTRACTIONS (
-    Attraction_ID INT, -- Primary key
-    City_ID INT, -- Foreign Key referring to PK of CITY, add constraint
-    Owner_ID INT, -- Foreign Key referring to PK of BUSINESS_OWNER, add constraint later
+    Attraction_ID INT,
+    City_ID INT,
+    Owner_ID INT,
     Attraction_name VARCHAR(35),
     Attraction_description VARCHAR(250),
     Attraction_address VARCHAR(100),
     Rating INT,
-    Opening_hours VARCHAR(10), -- Assuming something like "9:00 AM"
+    Opening_hours VARCHAR(10),
     Phone_number VARCHAR(25),
     PRIMARY KEY (Attraction_ID)
 );
 
 CREATE TABLE TRAVEL_ATTRACTIONS_WAYS_OF_TRAVEL (
-    Attraction_ID INT, -- Foreign key referring to PK of ATTRACTION, add constraint later
+    Attraction_ID INT,
     Ways_of_travel VARCHAR(30),
     PRIMARY KEY (Attraction_ID, Ways_of_travel)
 );
 
 CREATE TABLE RESTAURANTS (
     Restaurant_ID INT,
-    Attraction_ID INT, -- Foreign key referring to PK of ATTRACTIONS, add constraint later
-    City_ID INT, -- Foreign key referring to PK of CITY, add constraint later
+    Attraction_ID INT,
+    City_ID INT,
     Restaurant_name VARCHAR(30),
     Restaurant_description VARCHAR(250),
     Restaurant_address VARCHAR(100),
@@ -156,15 +156,15 @@ CREATE TABLE RESTAURANTS (
 CREATE TABLE SIGHTS(
     Sight_ID INT,
     Attraction_ID INT,
-    City_ID INT, -- Foreign Key
+    City_ID INT,
     Ticket_Price DECIMAL(10, 4),
     PRIMARY KEY(Sight_ID, Attraction_ID)
 );
 
 CREATE TABLE SHOPPING_MALLS(
    Mall_ID INT,
-   Attraction_ID INT, -- FK
-   City_ID INT, -- FK
+   Attraction_ID INT,
+   City_ID INT,
    Price_range DECIMAL(8,2),
    PRIMARY KEY(Mall_ID)
 );

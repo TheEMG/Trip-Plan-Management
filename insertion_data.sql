@@ -265,8 +265,8 @@ INSERT INTO SHOPPING_MALLS VALUES
 
 /* TRIP_PLAN: Plan_ID, Member_ID, Potential_Cost, Start_Date, End_Date, Duration, Trip_Name, Purpose */
 INSERT INTO TRIP_PLAN VALUES
-  (1, 1, 10000.00, '2018-12-02', '2018-12-10', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."), -- changed date for query 8
-  (2, 2, 1250.00, '2019-01-02', '2019-01-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),-- changed date for query 8
+  (1, 1, 10000.00, '2018-12-02', '2018-12-10', 10, 'Super Awesome Vacation', "Awesome vacation with the entire family."),
+  (2, 2, 1250.00, '2019-01-02', '2019-01-04', 2, 'Weekend Trip', "Went on a trip over the weekend of Oct. 2nd."),
   (3, 3, 999999.99, '2020-12-01', '2020-12-25', 24, 'Fun Trip Across the World', "Insert text here."),
   (4, 4, 100.00, '2024-01-25', '2024-01-26', 1, 'Gas Station Trip',"Went to the gas station."),
   (5, 5, 500.00, '2023-02-15', '2023-02-28', 13, 'Around the US in 13 Days', "Very fast hot air balloon."),
@@ -281,10 +281,11 @@ INSERT INTO TRIP_PLAN VALUES
   (14, 14, 4555.75, '2004-08-16', '2004-08-24', 4, '4 Day Trip', "Very fun!"),
   (15, 15, 750.00, '2008-09-09', '2009-10-10', 31, 'My vacation', "Decided to take a vacation for the end of summer"),
   (16, 16, 29000.00, '2024-05-10', '2024-06-10', 31, 'Vicente Fernandez Musical Tour in France', 'Embark on a musical journey across France, exploring the vibrant culture and heritage through the iconic songs of Vicente Fernandez.'),
-  (17, 17, 800.00, '2009-01-15', '2009-02-15', 31, 'Winter Break', "Taking a break this winter"), -- Eric added
+  (17, 17, 800.00, '2009-01-15', '2009-02-15', 31, 'Winter Break', "Taking a break this winter"),
   (18, 18, 900.00, '2009-04-10', '2009-05-11', 31, 'Spring Getaway', "Spring getaway to rejuvenate"),
   (19, 19, 850.00, '2009-07-20', '2009-08-20', 31, 'Summer Escape', "Escape the city for summer");
-  /* PLANNED_ATTRACTIONS: Plan_ID, Attraction_ID, Arrival_Date, Arrival_Time, Departure_Date, Departure_Time */
+
+/* PLANNED_ATTRACTIONS: Plan_ID, Attraction_ID, Arrival_Date, Arrival_Time, Departure_Date, Departure_Time */
 INSERT INTO PLANNED_ATTRACTIONS VALUES
     (1, 1, '2024-04-15', '09:00', '2024-04-15', '10:30'), -- Visit to Cafe of Death
     (2, 2, '2024-04-15', '20:00', '2024-04-15', '23:00'), -- Dinner at Moonlit Grille
@@ -323,7 +324,7 @@ INSERT INTO PLANNED_ATTRACTIONS VALUES
     (16, 1, '2024-05-29', '08:00:00', '2024-05-31', '12:00:00'), -- Visit to Cafe of Death
     (3, 1, '2024-04-12', '09:30:00', '2024-04-13', '10:00:00'), -- Visit to Cafe of Death
     (15, 15, '2024-04-28', '11:00', '2024-04-28', '15:00'), -- City Lights Mall exploration
-    (16, 15, '2024-04-29', '10:00', '2024-04-29', '14:00'), -- Eric added
+    (16, 15, '2024-04-29', '10:00', '2024-04-29', '14:00'),
     (17, 17, '2024-04-30', '09:00', '2024-04-30', '13:00'),
     (12, 18, '2024-05-01', '12:00', '2024-05-01', '16:00'),
     (12, 18, '2024-05-01', '12:00', '2024-05-01', '16:00');
@@ -377,9 +378,9 @@ INSERT INTO SIGHTS VALUES
 
 /* COMMENTS: Comment_ID, Destination_ID, Member_ID, Dislikes, Likes, Content_Rating, Comment_Date, Posting_Time */
 INSERT INTO COMMENTS VALUES
-  (1, 1, 1, 5, 3, 2, '2018-12-02', '10:00:00'), -- changed date for query 8
-  (2, 2, 2, 10, 7, 3, '2018-12-15', '02:00:00'),-- changed date for query 8
-  (3, 3, 3, 15, 11, 4, '2019-01-31', '15:15:15'), -- changed date for query 8
+  (1, 1, 1, 5, 3, 2, '2018-12-02', '10:00:00'),
+  (2, 2, 2, 10, 7, 3, '2018-12-15', '02:00:00'),
+  (3, 3, 3, 15, 11, 4, '2019-01-31', '15:15:15'),
   (4, 4, 4, 20, 15, 5, '2021-10-02', '12:37:45'),
   (5, 5, 5, 25, 19, 6, '2022-11-11', '11:11:11');
   
